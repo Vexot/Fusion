@@ -1,0 +1,1677 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Una biblioteca reactiva moderna, construida específicamente para Roblox y Luau.">
+      
+      
+      
+      
+        <link rel="canonical" href="https://vexot.github.io/Fusion/api-reference/errors-and-messages/">
+      
+      <link rel="icon" href="../../assets/logo-dark.svg">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+    
+    
+      
+        <title>Errores y Mensajes - Fusion en Español</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.5143246d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,400i,700%7CJetBrains+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Inter";--md-code-font-family:"JetBrains Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/fusion.css">
+    
+    
+      
+
+
+    
+    
+  
+  
+    
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fusion en Español - Errores y Mensajes" />
+  <meta property="og:description" content="Una biblioteca reactiva moderna, construida específicamente para Roblox y Luau." />
+  <meta property="og:url" content="https://vexot.github.io/Fusion/api-reference/errors-and-messages/" />
+  <meta property="og:image" content="https://vexot.github.io/Fusion/assets/MetaImage.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fusion en Español - Errores y Mensajes" />
+  <meta name="twitter:description" content="Una biblioteca reactiva moderna, construida específicamente para Roblox y Luau." />
+  <meta name="twitter:image" content="https://vexot.github.io/Fusion/assets/MetaImage.png" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="fusion-dark" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cannotassignproperty" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Fusion en Español" class="md-header__button md-logo" aria-label="Fusion en Español" data-md-component="logo">
+      
+  <img src="../../assets/logo-dark.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fusion en Español
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Errores y Mensajes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Elttob/Fusion/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Elttob/Fusion
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Inicio
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/" class="md-tabs__link">
+        Tutoriales
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../examples/" class="md-tabs__link">
+        Ejemplos
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Referencia del API
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../extras/" class="md-tabs__link">
+        Extras
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fusion en Español" class="md-nav__button md-logo" aria-label="Fusion en Español" data-md-component="logo">
+      
+  <img src="../../assets/logo-dark.svg" alt="logo">
+
+    </a>
+    Fusion en Español
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Elttob/Fusion/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Elttob/Fusion
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutoriales
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutoriales" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutoriales
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/" class="md-nav__link">
+        Empezar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Fundamentos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fundamentos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Fundamentos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/fundamentals/creating-ui/" class="md-nav__link">
+        Creando UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/fundamentals/handling-events/" class="md-nav__link">
+        Manejando Eventos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/fundamentals/storing-state/" class="md-nav__link">
+        Guardando States
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/fundamentals/computations/" class="md-nav__link">
+        Cómputos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/fundamentals/changing-properties/" class="md-nav__link">
+        Cambiando Propiedades
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/fundamentals/changing-children/" class="md-nav__link">
+        Cambiando Children
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/fundamentals/project-1/" class="md-nav__link">
+        Proyecto 1: Contando Clics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Otros Fundamentos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Otros Fundamentos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Otros Fundamentos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/further-basics/components/" class="md-nav__link">
+        Componentes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/further-basics/arrays-and-lists/" class="md-nav__link">
+        Arrays y Listas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/further-basics/compatibility/" class="md-nav__link">
+        Compatibilidad
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/further-basics/project-2/" class="md-nav__link">
+        Proyecto 2: Lista To-Do
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Animación
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Animación" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Animación
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/animation/tweens/" class="md-nav__link">
+        Tweens
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/animation/springs/" class="md-nav__link">
+        Springs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/animation/project-3/" class="md-nav__link">
+        Proyecto 3: Switches
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Ejemplos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Ejemplos" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Ejemplos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Referencia del API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Referencia del API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Referencia del API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Errores y Mensajes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Errores y Mensajes
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cannotassignproperty" class="md-nav__link">
+    cannotAssignProperty
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cannotconnectchange" class="md-nav__link">
+    cannotConnectChange
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cannotconnectevent" class="md-nav__link">
+    cannotConnectEvent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cannotcreateclass" class="md-nav__link">
+    cannotCreateClass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computedcallbackerror" class="md-nav__link">
+    computedCallbackError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invalidspringdamping" class="md-nav__link">
+    invalidSpringDamping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invalidspringspeed" class="md-nav__link">
+    invalidSpringSpeed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mistypedspringdamping" class="md-nav__link">
+    mistypedSpringDamping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mistypedspringspeed" class="md-nav__link">
+    mistypedSpringSpeed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pairsdestructorerror" class="md-nav__link">
+    pairsDestructorError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pairsprocessorerror" class="md-nav__link">
+    pairsProcessorError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springtypemismatch" class="md-nav__link">
+    springTypeMismatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strictreaderror" class="md-nav__link">
+    strictReadError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unknownmessage" class="md-nav__link">
+    unknownMessage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unrecognisedchildtype" class="md-nav__link">
+    unrecognisedChildType
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unrecognisedpropertykey" class="md-nav__link">
+    unrecognisedPropertyKey
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Instancias
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Instancias" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Instancias
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/new/" class="md-nav__link">
+        New
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/children/" class="md-nav__link">
+        Children
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/onevent/" class="md-nav__link">
+        OnEvent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/onchange/" class="md-nav__link">
+        OnChange
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Gestión de Estados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestión de Estados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Gestión de Estados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/state/" class="md-nav__link">
+        State
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/computed/" class="md-nav__link">
+        Computed
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/computedpairs/" class="md-nav__link">
+        ComputedPairs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/compat/" class="md-nav__link">
+        Compat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5">
+          Animación
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Animación" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Animación
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/tween/" class="md-nav__link">
+        Tween
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/spring/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Extras
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Extras" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Extras
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extras/" class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extras/backgrounds/" class="md-nav__link">
+        Fondos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cannotassignproperty" class="md-nav__link">
+    cannotAssignProperty
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cannotconnectchange" class="md-nav__link">
+    cannotConnectChange
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cannotconnectevent" class="md-nav__link">
+    cannotConnectEvent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cannotcreateclass" class="md-nav__link">
+    cannotCreateClass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computedcallbackerror" class="md-nav__link">
+    computedCallbackError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invalidspringdamping" class="md-nav__link">
+    invalidSpringDamping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invalidspringspeed" class="md-nav__link">
+    invalidSpringSpeed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mistypedspringdamping" class="md-nav__link">
+    mistypedSpringDamping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mistypedspringspeed" class="md-nav__link">
+    mistypedSpringSpeed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pairsdestructorerror" class="md-nav__link">
+    pairsDestructorError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pairsprocessorerror" class="md-nav__link">
+    pairsProcessorError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springtypemismatch" class="md-nav__link">
+    springTypeMismatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strictreaderror" class="md-nav__link">
+    strictReadError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unknownmessage" class="md-nav__link">
+    unknownMessage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unrecognisedchildtype" class="md-nav__link">
+    unrecognisedChildType
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unrecognisedpropertykey" class="md-nav__link">
+    unrecognisedPropertyKey
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Elttob/Fusion/edit/master/docs/api-reference/errors-and-messages.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Errores y Mensajes</h1>
+                
+                <p>Si tu código no está funcionando adecuadamente o si Fusion está fallando, podrías 
+ver algunos errores aparecer en el output. Cada mensaje tiene un ID único al final.</p>
+<p>En esta página, puedes aprender más acerca de cualquier error que estés recibiendo.</p>
+<hr />
+<h2 id="cannotassignproperty"><code>cannotAssignProperty</code><a class="headerlink" href="#cannotassignproperty" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>The class type &#39;Foo&#39; has no assignable property &#39;Bar&#39;.
+</code></pre></div>
+<p>Este mensaje aparece si estás intentando asignar una propiedad no existente o bloqueada 
+usando la función <a href="../new">New</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">folder</span> <span class="o">=</span> <span class="n">New</span> <span class="s2">&quot;Folder&quot;</span> <span class="p">{</span>
+    <span class="n">DataCost</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="n">ThisPropertyDoesntExist</span> <span class="o">=</span> <span class="s2">&quot;Ejemplo&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Diferentes scripts pueden tener diferentes privilegios - por ejemplo, los plugins 
+tienen un mayor privilegio que los scripts del juego. ¡Asegúrate de tener los 
+privilegios necesarios para poder asignar a tus propiedades!</p>
+</div>
+<hr />
+<h2 id="cannotconnectchange"><code>cannotConnectChange</code><a class="headerlink" href="#cannotconnectchange" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>The Frame class doesn&#39;t have a property called &#39;Foo&#39;.
+</code></pre></div>
+<p>Este mensaje aparece si estás intentando conectar un handler con una propiedad 
+de change event que no existe usando la función <a href="../new">New</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">textBox</span> <span class="o">=</span> <span class="n">New</span> <span class="s2">&quot;TextBox&quot;</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">OnChange</span> <span class="s2">&quot;EstaPropiedadNoExiste&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+        <span class="p">...</span>
+    <span class="kr">end</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="cannotconnectevent"><code>cannotConnectEvent</code><a class="headerlink" href="#cannotconnectevent" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>The Frame class doesn&#39;t have an event called &#39;Foo&#39;.
+</code></pre></div>
+<p>Este mensaje aparece si estás intentando conectar un handler con un evento que 
+no existe usando la función <a href="../new">New</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">button</span> <span class="o">=</span> <span class="n">New</span> <span class="s2">&quot;TextButton&quot;</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">OnEvent</span> <span class="s2">&quot;EsteEventoNoExiste&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kr">function</span><span class="p">()</span>
+        <span class="p">...</span>
+    <span class="kr">end</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="cannotcreateclass"><code>cannotCreateClass</code><a class="headerlink" href="#cannotcreateclass" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Can&#39;t create a new instance of class &#39;Foo&#39;.
+</code></pre></div>
+<p>Este mensaje aparece cuando se usa la función <a href="../new">New</a> con una clase de 
+tipo inválida:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">New</span> <span class="s2">&quot;ThisClassTypeIsInvalid&quot;</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="computedcallbackerror"><code>computedCallbackError</code><a class="headerlink" href="#computedcallbackerror" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Computed callback error: attempt to index a nil value
+</code></pre></div>
+<p>Este mensaje aparece cuando el callback de un <a href="../computed">computed object</a> 
+encuentra un error:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">example</span> <span class="o">=</span> <span class="n">Computed</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="kd">local</span> <span class="n">badMath</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;pez&quot;</span>
+<span class="kr">end</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="invalidspringdamping"><code>invalidSpringDamping</code><a class="headerlink" href="#invalidspringdamping" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>The damping ratio for a spring must be &gt;= 0. (damping was -0.50)
+</code></pre></div>
+<p>Este mensaje aparece si estás intentando proporcionar una amortiguación a un 
+<a href="../spring">spring</a> que sea menor que 0:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">speed</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="kd">local</span> <span class="n">damping</span> <span class="o">=</span> <span class="o">-</span><span class="mi">12345</span>
+<span class="kd">local</span> <span class="n">spring</span> <span class="o">=</span> <span class="n">Spring</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">damping</span><span class="p">)</span>
+</code></pre></div>
+<p>La amortiguación siempre tiene que ser entre 0 y infinito para que un spring 
+sea físicamente simulable.</p>
+<hr />
+<h2 id="invalidspringspeed"><code>invalidSpringSpeed</code><a class="headerlink" href="#invalidspringspeed" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>The speed of a spring must be &gt;= 0. (speed was -2.00)
+</code></pre></div>
+<p>Este mensaje aparece si estás intentando proporcionar una velocidad a un 
+<a href="../spring">spring</a> que sea menor que 0:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">speed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">12345</span>
+<span class="kd">local</span> <span class="n">spring</span> <span class="o">=</span> <span class="n">Spring</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+</code></pre></div>
+<p>Ya que una velocidad de 0 es equivalente a un spring que no se mueve, cualquier 
+velocidad menor no es simulable o físicamente sensible.</p>
+<hr />
+<h2 id="mistypedspringdamping"><code>mistypedSpringDamping</code><a class="headerlink" href="#mistypedspringdamping" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>The damping ratio for a spring must be a number. (got a boolean)
+</code></pre></div>
+<p>Este mensaje aparece si estás intentando proporcionar una amortiguación a un 
+<a href="../spring">spring</a> que no sea un número:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">speed</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="kd">local</span> <span class="n">damping</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="kd">local</span> <span class="n">spring</span> <span class="o">=</span> <span class="n">Spring</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">damping</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="mistypedspringspeed"><code>mistypedSpringSpeed</code><a class="headerlink" href="#mistypedspringspeed" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>The speed of a spring must be a number. (got a boolean)
+</code></pre></div>
+<p>Este mensaje aparece si estás intentando proporcionar una velocidad a un 
+<a href="../spring">spring</a> que no sea un número:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">speed</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="kd">local</span> <span class="n">spring</span> <span class="o">=</span> <span class="n">Spring</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="pairsdestructorerror"><code>pairsDestructorError</code><a class="headerlink" href="#pairsdestructorerror" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>ComputedPairs destructor error: attempt to index a nil value
+</code></pre></div>
+<p>Este mensaje aparece cuando el callback <code>destructor</code> de un <a href="../computedpairs">ComputedPairs object</a> 
+encuentra un error:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">example</span> <span class="o">=</span> <span class="n">ComputedPairs</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">processor</span><span class="p">,</span>
+    <span class="kr">function</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="kd">local</span> <span class="n">badMath</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;pez&quot;</span>
+    <span class="kr">end</span>
+<span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="pairsprocessorerror"><code>pairsProcessorError</code><a class="headerlink" href="#pairsprocessorerror" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>ComputedPairs callback error: attempt to index a nil value
+</code></pre></div>
+<p>Este mensaje aparece cuando el callback <code>processor</code> de un <a href="../computedpairs">ComputedPairs object</a> 
+encuentra un error:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">example</span> <span class="o">=</span> <span class="n">ComputedPairs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="kd">local</span> <span class="n">badMath</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;pez&quot;</span>
+<span class="kr">end</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="springtypemismatch"><code>springTypeMismatch</code><a class="headerlink" href="#springtypemismatch" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>The type &#39;number&#39; doesn&#39;t match the spring&#39;s type &#39;Color3&#39;.
+</code></pre></div>
+<p>Algunos métodos en objetos de <a href="../spring">spring</a> requieren valores entrantes para 
+emparejar los tipos que fueron usados previamente en el spring.</p>
+<p>Este mensaje aparece cuando un valor entrante no tiene el mismo tipo que los valores 
+usados previamente en el spring:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">State</span><span class="p">(</span><span class="n">Color3</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="kd">local</span> <span class="n">colourSpring</span> <span class="o">=</span> <span class="n">Spring</span><span class="p">(</span><span class="n">colour</span><span class="p">)</span>
+
+<span class="n">colourSpring</span><span class="p">:</span><span class="n">addVelocity</span><span class="p">(</span><span class="n">Vector2</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<hr />
+<h2 id="strictreaderror"><code>strictReadError</code><a class="headerlink" href="#strictreaderror" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>&#39;Foo&#39; is not a valid member of &#39;Bar&#39;.
+</code></pre></div>
+<p>En Fusion, algunas tablas pueden tener reglas de lectura estrictas (strict). Esto 
+es comúnmente usado en APIs públicas como defensa de errores de escritura.</p>
+<p>Este mensaje aparece cuando se intenta leer un miembro no existente de estas tablas.</p>
+<hr />
+<h2 id="unknownmessage"><code>unknownMessage</code><a class="headerlink" href="#unknownmessage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Unknown error: attempt to index a nil value
+</code></pre></div>
+<p>Si ves este mensaje, es casi seguro que sea un bug interno, así que asegúrate de 
+ponerte en contacto para que el error pueda ser arreglado.</p>
+<p>Cuando el código de Fusion intenta registrar un mensaje, advertencia o error, 
+necesita proporcionar un ID. Este ID es usado para mostrar el mensaje correcto, 
+y funciona como un identificador simple y memorable por si necesitas buscar el 
+mensaje después. Sin embargo, si ese código no proporciona un ID válido, entonces 
+el mensaje será reemplazado con este.</p>
+<hr />
+<h2 id="unrecognisedchildtype"><code>unrecognisedChildType</code><a class="headerlink" href="#unrecognisedchildtype" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>&#39;number&#39; type children aren&#39;t accepted as children in `New`.
+</code></pre></div>
+<p>Este mensaje aparece cuando se intenta pasar algo como un child que no es una 
+instancia, tabla de instancias, o state object que contenga una instancia (cuando 
+se usa la función <a href="../new.md">New</a>):</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">New</span> <span class="s2">&quot;Folder&quot;</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">Children</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
+
+        <span class="p">{</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">},</span>
+
+        <span class="n">State</span><span class="p">(</span><span class="n">Enum</span><span class="p">.</span><span class="n">Material</span><span class="p">.</span><span class="n">Grass</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ten en cuenta que los state objects pueden guardar <code>nil</code> para representar 
+la ausencia de una instancia, como excepción a estas reglas.</p>
+</div>
+<hr />
+<h2 id="unrecognisedpropertykey"><code>unrecognisedPropertyKey</code><a class="headerlink" href="#unrecognisedpropertykey" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>&#39;number&#39; keys aren&#39;t accepted in the property table of `New`.
+</code></pre></div>
+<p>Cuando creas una instancia en Fusion usando <a href="../new">New</a>, puedes pasar una 
+'property table' que contenga propiedades, children, handlers de cambio de 
+propiedad y eventos, etc.</p>
+<p>Esta tabla solo se espera que contenga keys de dos tipos:</p>
+<ul>
+<li>string keys, ej. <code class="highlight"><span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Ejemplo&quot;</span></code></li>
+<li>unas cuantas keys de símbolos, ej. <code class="highlight"><span class="p">[</span><span class="n">OnEvent</span> <span class="s2">&quot;Foo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">...</span></code></li>
+</ul>
+<p>Este mensaje aparece si Fusion encuentra una key de un tipo diferente, o si 
+la key no es una de las keys de símbolos usadas en New:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">folder</span> <span class="o">=</span> <span class="n">New</span> <span class="s2">&quot;Folder&quot;</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">Vector3</span><span class="p">.</span><span class="n">new</span><span class="p">()]</span> <span class="o">=</span> <span class="s2">&quot;Ejemplo&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;Esto&quot;</span><span class="p">,</span> <span class="s2">&quot;No deberia&quot;</span><span class="p">,</span> <span class="s2">&quot;Estar&quot;</span><span class="p">,</span> <span class="s2">&quot;Aquí&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition quote">
+<p class="admonition-title">Última Actualización de la Localización 10/10/2021</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Inicio" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Inicio
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../api/new/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: New" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              New
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="https://github.com/Elttob/Fusion" target="_blank" rel="noopener" title="Original Repo" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 448c-110.532 0-200-89.451-200-200 0-110.531 89.451-200 200-200 110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200zm107.351-101.064c-9.614 9.712-45.53 41.396-104.065 41.396-82.43 0-140.484-61.425-140.484-141.567 0-79.152 60.275-139.401 139.762-139.401 55.531 0 88.738 26.62 97.593 34.779a11.965 11.965 0 0 1 1.936 15.322l-18.155 28.113c-3.841 5.95-11.966 7.282-17.499 2.921-8.595-6.776-31.814-22.538-61.708-22.538-48.303 0-77.916 35.33-77.916 80.082 0 41.589 26.888 83.692 78.277 83.692 32.657 0 56.843-19.039 65.726-27.225 5.27-4.857 13.596-4.039 17.82 1.738l19.865 27.17a11.947 11.947 0 0 1-1.152 15.518z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+
+<!-- Content -->
+{% block content %}
+  <div class="fusion-404">
+	<h1>
+		<img src="{{ config.site_url }}assets/404.svg" alt="404">
+		404
+	</h1>
+	<p>
+		No logramos encontrar la página.
+	</p>
+	<p>
+		Aquí hay varias ideas en cómo encontrarla:
+		<ul>
+			<li>
+				Asegúrate de que la URL no tenga errores.
+			</li>
+			<li>
+				Usa la barra de búsqueda de arriba para intentar encontrar la página.
+			</li>
+			<li>
+				Puede que aun no haya sido agregada o localizada, por esto te incentivamos a ver la
+				<a href="https://elttob.github.io/Fusion/">documentación original</a>.
+			</li>
+			<li>
+				¡Esta página puede que aún no exista!
+			</li>
+		</ul>
+	</p>
+  </div>
+{% endblock %}
+
+<!-- Disqus integration -->
+{% block disqus %}{% endblock %}
