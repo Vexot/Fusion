@@ -2,7 +2,7 @@ name: MkDocs Deploy
 on:
   push:
     branches:
-      - temp-web
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
