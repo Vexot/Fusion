@@ -1,139 +1,150 @@
-Welcome to the Fusion tutorial section! Here, you'll learn how to build great
-interfaces with Fusion, even if you're a complete newcomer to the library.
+¡Bienvenido a la sección de tutoriales de Fusion! Aqui, aprenderas cómo construir 
+grandes interfaces con Fusion, aún si eres un completo novato en la biblioteca.
 
-!!! warning "Early Beta"
-	Fusion is highly work-in-progress right now. There are a lot of features
-	that don't work, aren't implemented, aren't documented fully or which may
-	be tweaked or removed. We don't recommend using Fusion for any major project
-	right now unless you're willing to take on the extra work of following these
-	changes.
+!!! warning "Beta Temprana"
+	Fusion es actualmente un proyecto en curso. Hay muchas funciones que no 
+	funcionan, no están implementadas, no están documentadas por completo o 
+	tal vez serán modificadas o eliminadas. No recomendamos usar Fusion para 
+	ningún proyecto importante por ahora a menos que estés dispuesto a 
+	hacer más trabajo en seguir los cambios.
 
-	More stable, long-term-supported Fusion versions will be available once
-	Fusion exits beta testing.
+	Versiones más estables y mantenidas a largo plazo de Fusion estarán disponibles 
+	una vez Fusion pase la fase beta.
 
------
+!!! fail "Derechos de Autor"
+	Fusion se desarrolla y mantiene en su [repositorio original](https://github.com/Elttob/Fusion/), 
+	esta página es solo la versión de la documentación localizada al español 
+	(el repositorio modificado se encuentra [aquí](https://github.com/Vexot/Fusion/tree/temp-website)). 
+	Todos los derechos sobre este repositorio le pertenecen a [Elttob](https://github.com/Elttob) 
+	y a cualquier persona que llegue a contribuir al original.
 
-## What You Need To Know
-
-These tutorials assume:
-
-- You're comfortable with Roblox and the Luau scripting language.
-	- These tutorials aren't an introduction to scripting! If you'd like to
-	  learn, check out the [Roblox DevHub](https://developer.roblox.com/).
-- You're familiar with how UI works on Roblox.
-    - You don't have to be a designer - knowing about UI instances, events
-	and data types like `UDim2` and `Color3` will be good enough.
-
-Of course, based on your existing knowledge, you may find some tutorials easier
-or harder. Fusion's built to be easy to learn, but it may still take a bit of
-time to absorb some concepts, so don't be discouraged :smile:
+	*[Más información acerca de la licencia](https://github.com/Elttob/Fusion/blob/main/LICENSE)*
 
 -----
 
-## How These Tutorials Work
 
-You can find the tutorials in the navigation bar to your left. Tutorials are
-grouped together by category, and are designed to explore specific features of
-Fusion:
+## Lo Que Debes Saber
 
-- *'Fundamentals'* introduces the core ideas of Fusion - making instances, storing
-state and responding to events.
-- *'Further Basics'* builds on those core ideas by adding in useful utilities for
-building more complex UIs.
-- *'Animation'* demonstrates how to add tweens, transitions and spring physics to
-bring your UI to life.
+Estos tutoriales asumen que:
 
-You can either do them in order (recommended for newcomers), or you can
-jump to a specific tutorial for a quick refresh.
+- Estás cómodo con Roblox y el lenguaje de programación Luau.
+	- ¡Estos tutoriales no son una introducción para programar! Si deseas aprender, 
+	mira el [Roblox DevHub](https://developer.roblox.com/).
+- Eres familiar en cómo funciona la UI en Roblox.
+    - No tienes que ser un diseñador - conocer sobre instancias, eventos 
+	y tipos de datos de UI como `UDim2` y `Color3` será suficiente.
 
-You'll also see 'projects', which combine concepts from earlier tutorials and
-show how they interact and work together in a real setting.
+Por supuesto, basado en tus conocimientos previos, encontrarás algunos tutoriales 
+más fáciles o difíciles. Fusion está construido para ser fácil de aprender, pero aún así 
+puede tomar un poco de tiempo aprender algunos conceptos, así que no te desalientes :smile:
 
 -----
 
-At the beginning of every tutorial, you'll see a section titled 'Required code'.
-They look like this - you can click to expand them:
+## Cómo Funcionan Estos Tutoriales
 
-??? abstract "Required code"
+Puedes encontrar los tutoriales en la barra de navegación a tu izquierda. Los 
+tutoriales son agrupados por categoría, y son diseñados para explorar 
+características específicas de Fusion:
+
+- *'Fundamentos'* presenta las ideas centrales de Fusion - creando instancias, guardando 
+estados y respondiendo a eventos.
+- *'Otros Fundamentos'* se desarrolla en esas ideas centrales, agregando herramientas 
+útiles para construir UIs más complejas.
+- *'Animación'* demuestra cómo agregar tweens, transiciones y físicas de springs para 
+darle vida a tu UI.
+
+Puedes hacerlos en orden (recomendado para novatos), o puedes dirigirte a 
+un tutorial en especifico para dar un repaso rápido.
+
+También verás 'proyectos', el cual combina conceptos de tutoriales anteriores y 
+muestra cómo pueden interactuar y trabajar juntos en un entorno real.
+
+-----
+
+En el comienzo de cada tutorial, verás una sección titulada 'Código necesario'. 
+Se ven así - puedes presionarlos para expandirlos:
+
+??? abstract "Código necesario"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local Fusion = require(ReplicatedStorage.Fusion)
 
-	print("This is an example!")
+	print("¡Esto es un ejemplo!")
 	```
 
-Before starting each tutorial, make sure to copy the code into your script
-editor, so you can follow along properly.
+Antes de comenzar cada tutorial, asegúrate de copiar el código en tu editor de 
+codigo, para que puedas seguirlo adecuadamente.
 
 -----
 
-Similarly, you'll find the finished code for the tutorial at the end, under
-'Finished code':
+De manera similar, encontraras código finalizado del tutorial al final, dentro 
+de 'Código finalizado':
 
-??? abstract "Finished code"
+??? abstract "Código finalizado"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local Fusion = require(ReplicatedStorage.Fusion)
 
-	print("This is an example!")
-	print("Pretend we added some code during the tutorial here...")
+	print("¡Esto es un ejemplo!")
+	print("Supón que agregamos código aquí durante el tutorial...")
 	```
 
-You can use the finished code as a reference if you get stuck - it'll contain
-the script as it appears after following all the steps of the tutorial.
+Puedes usar el código finalizado como una referencia si te quedas bloqueado - 
+contendrá el código como si ya hubiera pasado todos los pasos del tutorial.
 
 -----
 
-## Installing Fusion
+## Instalando Fusion
 
-Fusion is distributed as a single `ModuleScript`. Before starting, you'll need
-to add this module script to your game. Here's how:
+Fusion es distribuido como un solo `ModuleScript`. Antes de comenzar, necesitarás 
+agregar este module script a tu juego. Aquí te decimos cómo:
 
-### Fusion for Roblox Studio
+### Fusion para Roblox Studio
 
-If you script in Roblox Studio, here's how to install Fusion:
+Si programas en Roblox Studio, aquí te decimos como instalar Fusion:
 
-!!! example "Steps"
-	1. Head over to [Fusion's 'Releases' page](https://github.com/Elttob/Fusion/releases).
-	There, you can find the latest version of Fusion.
-	2. Under 'Assets', click the `.rbxm` file to download it. This contains the
-	Fusion module script.
-	3. In Roblox Studio, open or create a place.
-	4. Right-click on ReplicatedStorage, and select 'Insert from File'.
-	5. Find the `.rbxm` you just downloaded, and select it.
+!!! example "Pasos"
+	1. Dirigete a la [página de  'Releases' de Fusion](https://github.com/Elttob/Fusion/releases).
+	Ahí, podrás encontrar la última versión de Fusion.
+	2. Debajo de 'Assets', presiona en el archivo `.rbxm` para descargarlo. Este contiene 
+	el module script de Fusion.
+	3. En Roblox Studio, abre o crea un place.
+	4. Da clic derecho en ReplicatedStorage, y selecciona 'Insert from File'.
+	5. Encuentra el `.rbxm` que descargaste, y seleccionalo.
 
-	You should now see a ModuleScript called 'Fusion' sitting in ReplicatedStorage -
-	you're ready to go!
+	Ahora deberías ver un ModuleScript llamado 'Fusion' dentro de ReplicatedStorage - ¡estás listo para comenzar!
 
-### Fusion for External Editors
 
-If you use an external editor to write scripts, and synchronise them into Roblox
-using a plugin, here's how to install Fusion:
+### Fusion para Editores Externos
 
-??? example "Steps (click to expand)"
-	1. Head over to [Fusion's 'Releases' page](https://github.com/Elttob/Fusion/releases).
-	There, you can find the latest version of Fusion.
-	2. Under 'Assets', click the `.zip` file to download it. Inside is a copy
-	of the Fusion GitHub repository.
-	3. Inside the zip, copy the `src` folder - it may be in a nested folder.
-	4. Paste `src` into your local project, preferably in your `shared` folder
-	if you have one.
-	5. Rename the folder from `src` to `Fusion`.
+Si usas un editor externo para programar, y los sincronizas a Roblox usando un 
+plugin, aquí te decimos como instalar Fusion:
 
-	Once everything is set up, you should see Fusion appear in Studio when you
-	next synchronise your project.
+??? example "Pasos (presiona para expandir)"
+	1. Dirigete a la [página de  'Releases' de Fusion](https://github.com/Elttob/Fusion/releases). 
+	Ahí, podrás encontrar la última versión de Fusion.
+	2.Debajo de 'Assets', presiona en el archivo `.zip` para descargarlo. Dentro 
+	de este se encuentra una copia del repositorio de GitHub de Fusion.
+	3. Dentro del zip, copia la carpeta `src` - puede que esté dentro de otra 
+	carpeta.
+	4. Pega `src` dentro de tu proyecto local, preferiblemente en tu carpeta 
+	`shared`, si tienes una.
+	5. Renombra la carpeta de `src` a `Fusion`.
+
+	Una vez esté instalado, deberías ver Fusion aparecer en Studio cuando sincronices 
+	tu proyecto.
 
 -----
 
-## Setting Up A Test Script
+## Configurando Un Script De Prueba
 
-Now that you've installed Fusion, you can set up a local script for testing.
-Here's how:
+Ahora que ya has instalado Fusion, puedes configurar un local script para probar. 
+Aquí te decimos cómo:
 
-1. Create a `LocalScript` in a service like `StarterGui` or `StarterPlayerScripts`.
-2. Remove the default code, and paste the following code in:
+1. Crea un `LocalScript` en un servicio como `StarterGui` o `StarterPlayerScripts`.
+2. Elimina el código predeterminado, y pega el siguiente código:
 
 ```Lua linenums="1"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -141,24 +152,25 @@ local Fusion = require(ReplicatedStorage.Fusion)
 ```
 
 !!! note
-	This code assumes you've installed Fusion into ReplicatedStorage.
-	If you've installed Fusion elsewhere, you'll need to tweak the `require()`
-	to point to the correct location.
+	Este código asume que ya has instalado Fusion dentro de ReplicatedStorage. 
+	Si has instalado Fusion en otra parte, necesitarás ajustar el `require()` 
+	para dirigirse a la ubicación correcta.
 
-If everything was set up correctly, you can press 'Play' and everything should
-run without any errors.
+Si todo se ha configurado correctamente, puedes presionar 'Play' y todo debería 
+ejecutarse sin errores.
 
-??? fail "My script doesn't work - common errors"
+??? fail "Mi script no funciona  - errores comunes"
 	```
 	Fusion is not a valid member of ReplicatedStorage "ReplicatedStorage"
 	```
 
-	If you're seeing this error, then your script can't find Fusion. Refer back
-	to [the previous section](#installing-fusion) and double-check you've set
-	everything up properly.
+	Si estás viendo este error, entonces tu script no puede encontrar a Fusion. 
+	Vuelce a consultar [la sección anterior](#instalando-fusion) y verifica de nuevo que 
+	has configurado todo adecuadamente.
 
-	If you're using the installation guide from above, your `ReplicatedStorage`
-	should look like this:
+	Si estás usando la guia de instalacion anterior, tu `ReplicatedStorage` 
+	debería verse algo así:
 
-	![Explorer screenshot](index/ReplicatedStorage-Fusion.png)
+	![Pantallazo del Explorer](index/ReplicatedStorage-Fusion.png)
 
+!!! quote "Última Actualización de la Localización 25/09/2021"

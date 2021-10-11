@@ -2,42 +2,43 @@
 function Spring(goalValue: State<Animatable>, speed: number?, dampingRatio: number?): Spring
 ```
 
-Constructs and returns a new Spring state object, which follows the value of
-`goalValue`. The value of this object is simulated physically, as if linked to
-the goal value by a damped spring.
+Construye y regresa un nuevo state object de Spring, el cual sigue el valor de 
+`goalValue`. El valor de este objeto es simulado físicamente, como si estuviera 
+vinculado al valor del objetivo por un amortiguador.
 
-`speed` acts like a time multiplier; doubling `speed` corresponds to movement
-which is twice as fast.
+`speed` actúa como un multiplicador de tiempo, duplicando `speed` corresponde 
+a un movimiento que es dos veces más rápido.
 
-`dampingRatio` affects the friction; `0` represents no friction, and `1` is
-just enough friction to reach the goal without overshooting or oscillating. This
-can be varied freely to fine-tune how much friction or 'bounce' your motion has.
-
------
-
-## Parameters
-
-- `goalValue: State<Animatable>` - the goal value this object should approach
-- `speed: number?` - how fast this object should approach the goal
-- `dampingRatio: number?` - scales how much friction is applied
+`dampingRatio` afecta la fricción; `0` representa que no hay fricción, y `1` es 
+solo la suficiente fricción para alcanzar el objetivo sin rebasamiento u 
+oscilación. Esto se puede variar libremente para ajustar la cantidad de fricción 
+o 'rebote' que tiene el movimiento.
 
 -----
 
-## Object Methods
+## Parámetros
+
+- `goalValue: State<Animatable>` - el valor del objetivo que este objeto debe abordar
+- `speed: number?` - cuán rápido este objeto debe abordar el objetivo
+- `dampingRatio: number?` - escala cuánta fricción es aplicada
+
+-----
+
+## Métodos del Objeto
 
 ### `get()`
 
 ```Lua
 function Spring:get(): any
 ```
-Returns the currently stored value of this Spring state object.
+Regresa el valor guardado actualmente de este state object de Spring.
 
-If dependencies are currently being detected (e.g. inside a computed callback),
-then this state object will be used as a dependency.
+Si las dependencias están siendo detectadas actualmente (ej. dentro de un computed 
+callback), entonces este state object será usado como una dependencia.
 
 -----
 
-## Example Usage
+## Ejemplo de Uso
 
 ```Lua
 local position = State(UDim2.fromScale(0.25, 0.25))
@@ -52,6 +53,10 @@ local playerCount = State(0)
 local smoothPlayerCount = Spring(playerCount)
 
 local message = Computed(function()
-	return "Currently online: " .. math.floor(smoothPlayerCount:get())
+	return "Actualmente en línea: " .. math.floor(smoothPlayerCount:get())
 end)
 ```
+
+-----
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

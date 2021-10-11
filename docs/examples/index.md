@@ -1,14 +1,16 @@
-!!! warning "Under construction"
-	This page is under construction - information may be incomplete or missing.
+!!! warning "En construcción"
+	Esta página está en construcción - la información puede faltar o estar incompleta.
 
-Welcome to the Examples page! Here, you can find various open-source examples
-and projects, so you can see how Fusion works in a real setting.
+¡Bienvenido a la página de Ejemplos! Aquí, puedes encontrar una variedad de ejemplos 
+y proyectos open-source, así puedes ver como Fusion funciona en un entorno real.
 
 -----
 
-## Fusion Obby
+## Obby Fusion
 
-See how Fusion can be used to build a minimal interface for an obby, with an
-animated checkpoint counter and simulated confetti.
+Mira como Fusion puede ser usado para construir una interfaz mínima para un obby, 
+con un contador de checkpoint y confetti simulado animados.
 
-[Click here to view and edit the game on Roblox.](https://www.roblox.com/games/7262692194/Fusion-Obby)
+[Presiona aquí para ver y editar el juego en Roblox.](https://www.roblox.com/games/7262692194/Fusion-Obby)
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

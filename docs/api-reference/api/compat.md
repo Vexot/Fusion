@@ -2,62 +2,61 @@
 function Compat(watchedState: State<any>): Compat
 ```
 
-Constructs and returns a new compatibility object, which will listen for events
-on the given `watchedState` object.
+Construye y regresa un nuevo compatibility object, el cual escuchará eventos en 
+el objeto `watchedState` dado.
 
-Compat is intended as an API for integrating Fusion with other, non-Fusion code.
-Some example uses include synchronising theme colours to non-Fusion UIs, or
-saving state objects to data stores as they change.
+Compat está designado como una API para integrar Fusion con otro código que no 
+es de Fusion. Algunos usos como ejemplo incluyen sincronizar colores del tema a UIs que no 
+son de Fusion, o guardar state objects en data stores cuando cambian.
 
 !!! warning
-	You should only use `Compat` when dealing with non-Fusion code.
+	Solo debes usar `Compat` para lidiar con código que no sea de Fusion.
 
-	If you're building an interface with Fusion, there are already reactive
-	tools for almost every single use case, which can be better optimised by
-	Fusion and lead to cleaner and more idiomatic code. Using `Compat` in these
-	situations is highly discouraged.
+	Si estás construyendo una interfaz con Fusion, ya existen herramientas reactivas 
+	para casi cualquier caso de uso, el cual puede ser optimizado por Fusion y 
+	dirigirse a un código más limpio y representativo. Usar `Compat` en estas 
+	situaciones no es nada recomendable.
 
-	Changing state objects in `:onChange()` is a particular anti-pattern which
-	abusing Compat may encourage. If you need to update the value of a state
-	object when another state object is changed, consider using [computed state](../computed.md)
-	instead.
+	Cambiar state objects en `:onChange()` es un antipatrón particular que Compat 
+	puede incentivar a abusar. Si necesitas actualizar el valor de un state object 
+	cuando otro state object cambia, considera usar en cambio [computed state](../computed.md).
 
-	[For further details, see this issue on GitHub.](https://github.com/Elttob/Fusion/issues/8#issuecomment-888109650)
-
------
-
-## Parameters
-
-- `watchedState: State<any>` - a [state object](../state.md), [computed object](../computed.md)
-or other state object to track.
+	[Para ver más detalles, mira este issue en GitHub.](https://github.com/Elttob/Fusion/issues/8#issuecomment-888109650)
 
 -----
 
-## Object Methods
+## Parámetros
+
+- `watchedState: State<any>` - un [state object](../state.md), [computed object](../computed.md) 
+o otro state object para monitorear.
+
+-----
+
+## Métodos del Objeto
 
 ### `onChange()`
 
 ```Lua
 function Compat:onChange(callback: () -> ()): () -> ()
 ```
-Connects the given callback as a change handler, and returns a function which
-will disconnect the callback.
+Conecta el callback dado como un controlador de cambio, y regresa una función 
+que desconectará el callback.
 
-When the value of this Compat's `watchedState` changes, the callback will be
-fired.
+Cuando el valor de este `watchedState` de Compat cambia, el callback será ejecutado.
 
-!!! danger "Connection memory leaks"
-	Make sure to disconnect any change handlers made using this function once
-	you're done using them.
+!!! danger "Fugas en la memoria de conexión"
+	Asegúrate de desconectar cualquier controlador de cambio hecho usando esta 
+	función una vez hayas terminado de usarlos.
 
-	As long as a change handler is connected, this Compat object (and the
-	`watchedState`) will be held in memory so changes can be detected. This
-	means that, if you don't call the disconnect function, you may end up
-	accidentally holding the state object in memory after you're done using them.
+	Siempre y cuando un controlador de cambio esté conectado, este objeto Compat 
+	(y el `watchedState`) será conservado en la memoria, así los cambios pueden ser 
+	detectados. Esto significa que, si no llamas la función disconnect, puedes 
+	terminar conservando el state object en la memoria accidentalmente después 
+	de que lo termines de usar.
 
 -----
 
-## Example Usage
+## Ejemplo de Uso
 
 ```Lua
 local numCoins = State(50)
@@ -65,11 +64,15 @@ local numCoins = State(50)
 local compat = Compat(numCoins)
 
 local disconnect = numCoins:onChange(function()
-	print("coins is now:", numCoins:get())
+	print("coins ahora es:", numCoins:get())
 end)
 
-numCoins:set(25) -- prints 'coins is now: 25'
+numCoins:set(25) -- se le hace print a 'coins ahora es: 25'
 
--- always clean up your connections!
+-- ¡siempre limpia tus conexiones!!
 disconnect()
 ```
+
+-----
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

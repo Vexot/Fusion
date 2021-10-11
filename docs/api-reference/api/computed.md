@@ -2,34 +2,33 @@
 function Computed(callback: () -> any): Computed
 ```
 
-Constructs and returns a new computed object, using the given callback to
-compute this object's values based on other [state objects](../state) or computed objects.
+Construye y regresa un nuevo computed object, usando el callback dado para calcular 
+los valores del objeto basado en otros [state objects](../state) o computed objects.
 
 -----
 
-## Parameters
+## Parámetros
 
-- `callback: () -> any` - a function which computes and returns the value to use
-for this computed object.
+- `callback: () -> any` - una función que calcula y regresa el valor a usar para 
+este computed object.
 
 -----
 
-## Object Methods
+## Métodos del Objeto
 
 ### `get()`
 
 ```Lua
 function Computed:get(): any
 ```
-Returns the cached value of this computed object, as returned from the callback
-function.
+Regresa el valor caché de este computed object, como regresa de la función callback.
 
-If dependencies are currently being detected (e.g. inside a computed callback),
-then this computed object will be used as a dependency.
+Si las dependencias actualmente están siendo detectadas (ej. dentro de un computed 
+callback), entonces este computed object será usado como una dependencia.
 
 -----
 
-## Example Usage
+## Ejemplo de Uso
 
 ```Lua
 local numCoins = State(50)
@@ -46,29 +45,29 @@ print(doubleCoins:get()) --> 4
 
 -----
 
-## Dependency Management
+## Gestión de Dependencias
 
-Computed objects automatically detect dependencies used inside their callback
-each time their callback runs. This means, when you use a function like `:get()`
-on a state object, it will register that state object as a dependency:
+Los computed objects automáticamente detectan dependencias usadas dentro de su callback 
+cada vez que su callback se ejecuta. Esto significa, que al usar una función como 
+`:get()` en un state object, este registrará el state object como dependencia:
 
 ```Lua
 local numCoins = State(50)
 
 local doubleCoins = Computed(function()
-	-- Fusion detects we called :get() on `numCoins`, and so adds `numCoins` as
-	-- a dependency of this computed object.
+	-- Fusion detecta que llamamos :get() en `numCoins`, y por esto agrega `numCoins`
+	-- como una dependencia de este computed object.
 	return numCoins:get() * 2
 end)
 ```
 
-When a dependency changes value, the computed object will re-run its callback to
-generate and cache the current value internally. This value is later exposed via
-the `:get()` method.
+Cuando una dependencia cambia su valor, el computed object re-ejecuta su callback 
+para generar y almacenar el valor actual internamente. Este valor es luego expuesto 
+mediante el método `:get()`.
 
-Something to note is that dependencies are dynamic; you can change what values
-your computed object depends on, and the dependencies will be updated to reduce
-unnecessary updates:
+Algo importante es que las dependencias son dinámicas; puedes cambiar los valores de 
+los que dependen tus computed objects, y las dependencias serán actualizadas para 
+reducir actualizaciones innecesarias:
 
 === "Lua"
 	```Lua
@@ -77,7 +76,7 @@ unnecessary updates:
 	local selector = State("A")
 
 	local computed = Computed(function()
-		print("> updating computed!")
+		print("> ¡actualizando computed!")
 		local selected = selector:get()
 		if selected == "A" then
 			return stateA:get()
@@ -86,67 +85,70 @@ unnecessary updates:
 		end
 	end)
 
-	print("increment state A (expect update below)")
+	print("se ha incrementado el state A (se espera una actualización debajo)")
 	stateA:set(stateA:get() + 1)
-	print("increment state B (expect no update)")
+	print("se ha incrementado el state B (no se espera actualización)")
 	stateA:set(stateA:get() + 1)
 
-	print("switch to select B")
+	print("cambia para seleccionar B")
 	selector:set("B")
 
-	print("increment state A (expect no update)")
+	print("se ha incrementado el state A (no se espera actualización)")
 	stateA:set(stateA:get() + 1)
-	print("increment state B (expect update below)")
+	print("se ha incrementado el state B (se espera una actualización debajo)")
 	stateA:set(stateA:get() + 1)
 	```
-=== "Expected output"
+=== "Output esperado"
 	```
-	> updating computed!
-	increment state A (expect update below)
-	> updating computed!
-	increment state B (expect no update)
-	switch to select B
-	> updating computed!
-	increment state A (expect no update)
-	increment state B (expect update below)
-	> updating computed!
+	> ¡actualizando computed!
+	se ha incrementado el state A (se espera una actualización debajo)
+	> ¡actualizando computed!
+	se ha incrementado el state B (no se espera actualización)
+	cambia para seleccionar B
+	> ¡actualizando computed!
+	se ha incrementado el state A (no se espera actualización)
+	se ha incrementado el state B (se espera una actualización debajo)
+	> ¡actualizando computed!
 	```
 
 !!! danger
-	Stick to using state objects and computed objects inside your computations.
-	Fusion can detect when you use these objects and listen for changes.
+	Aférrate a usar state y computed objects dentro de tus cómputos. Fusion puede 
+	detectar cuando usas estos objetos y escucha cuando hay cambios.
 
-	Fusion *can't* automatically detect changes when you use 'normal' variables:
+	Fusion *no puede* detectar cambios automáticamente cuando usas variables 'normales':
 
 	```Lua
-	local theVariable = "Hello"
+	local theVariable = "Hola"
 	local badValue = Computed(function()
-		-- don't do this! use state objects or computed objects in here
-		return "Say " .. theVariable
+		-- ¡no hagas esto! usa state o computed objects aqui
+		return "Di " .. theVariable
 	end)
 
-	print(badValue:get()) -- prints 'Say Hello'
+	print(badValue:get()) -- printea 'Di Hola'
 
-	theVariable = "World"
-	print(badValue:get()) -- still prints 'Say Hello' - that's a problem!
+	theVariable = "Mundo"
+	print(badValue:get()) -- aún printea 'Di Hola' - ¡eso es un problema!
 	```
 
-	By using a state object here, Fusion can correctly update the computed
-	object, because it knows we used the state object:
+	Usando un state object aqui, Fusion puede actualizar el computed object 
+	correctamente, porque sabe que usamos el state object:
 
 	```Lua
-	local theVariable = State("Hello")
+	local theVariable = State("Hola")
 	local goodValue = Computed(function()
-		-- this is much better - Fusion can detect we used this state object!
-		return "Say " .. theVariable:get()
+		-- esto es mucho mejor - ¡Fusion puede detectar que usamos el state object!
+		return "Di " .. theVariable:get()
 	end)
 
-	print(goodValue:get()) -- prints 'Say Hello'
+	print(goodValue:get()) -- printea 'Di Hola'
 
-	theVariable:set("World")
-	print(goodValue:get()) -- prints 'Say World'
+	theVariable:set("Mundo")
+	print(goodValue:get()) -- printea 'Di Mundo'
 	```
 
-	This also applies to any functions that change on their own, like
-	`os.clock()`. If you need to use them, store values from the function in a
-	state object, and update the value of that object as often as required.
+	Esto también aplica a cualquier función que pueda cambiarse por sí misma, 
+	como `os.clock()`. Si necesitas usarlas, guarda valores de la función en un 
+	state object, y actualiza el valor de ese objeto tantas veces como 
+	sea necesario.
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

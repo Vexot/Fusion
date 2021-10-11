@@ -2,36 +2,36 @@
 local Children: Symbol
 ```
 
-The symbol used to denote the children of an instance when working with the
-[New](../new) function.
+El símbolo utilizado para denotar los children de una instancia cuando se trabaja 
+con la función [New](../new).
 
-When using this symbol as a key in `New`'s property table, the values will be
-treated as children, and parented according to the rules below.
+Cuando se usa este símbolo como key en la tabla de propiedades de `New`, los valores 
+serán tratados como children, y su parent será establecido de acuerdo a las reglas posteriores.
 
 -----
 
-## Example Usage
+## Ejemplo de Uso
 
 ```Lua
 local example = New "Folder" {
 	[Children] = New "StringValue" {
-		Value = "I'm parented to the Folder!"
+		Value = "¡Mi parent es la Folder!"
 	}
 }
 ```
 
 -----
 
-## Processing Children
+## Procesando Children
 
-A 'child' is defined (recursively) as:
+Un 'child' es definido (recursivamente) como:
 
-- an instance
-- a [state object](../state) or [computed object](../computed) containing children
-- an array of children
+- una instancia
+- un [state object](../state) o [computed object](../computed) que contenga children
+- una array de children
 
-Since this definition is recursive, arrays and state objects can be nested; that
-is, the following code is valid:
+Dado que esta definición es recursiva, arrays y state objects pueden ser anidadas; 
+es decir que el siguiente código es válido:
 
 ```Lua
 local example = New "Folder" {
@@ -39,7 +39,7 @@ local example = New "Folder" {
 		{
 			{
 				New "StringValue" {
-					Value = "I'm parented to the Folder!"
+					Value = "¡Mi parent es la Folder!"
 				}
 			}
 		}
@@ -47,21 +47,21 @@ local example = New "Folder" {
 }
 ```
 
-This behaviour is especially useful when working with components - the following
-component can return multiple instances to be parented without disrupting the
-code next to it:
+Este comportamiento es especialmente útil al trabajar con componentes - el siguiente 
+componente puede regresar múltiples instancias para establecer sus parents sin 
+interrumpir el código junto a él:
 
 ```Lua
 local function Component(props)
 	return {
 		New "TextLabel" {
 			LayoutOrder = 1,
-			Text = "Instance one"
+			Text = "Instancia uno"
 		},
 
 		New "TextLabel" {
 			LayoutOrder = 2,
-			Text = "Instance two"
+			Text = "Instancia dos"
 		}
 	}
 end
@@ -77,20 +77,20 @@ local parent = New "Frame" {
 }
 ```
 
-When using a state or computed object as a child, it will be bound; when the
-value of the state object changes, it'll unparent the old children and parent
-the new children.
+Al usar state o computed object como child, se vinculará; cuando el valor del state 
+object cambia, se le quitara el parent a los viejos children y se le establecerá 
+el parent a los nuevos children.
 
 !!! note
-	As with bound properties, updates are deferred to the next render step, and
-	so parenting won't occur right away.
+	Al igual que con propiedades bound, las actualizaciones son pospuestas al siguiente 
+	render step, por lo que el establecimiento de un parent no ocurrirá al instante.
 
 ```Lua
 local child1 = New "Folder" {
-	Name = "Child one"
+	Name = "Child uno"
 }
 local child2 = New "Folder" {
-	Name = "Child two"
+	Name = "Child dos"
 }
 
 local childState = State(child1)
@@ -99,17 +99,20 @@ local parent = New "Folder" {
 	[Children] = childState
 }
 
-print(parent:GetChildren()) -- { Child one }
+print(parent:GetChildren()) -- { Child uno }
 
 childState:set(child2)
-wait(1) -- wait for deferred updates to run
+wait(1) -- espera a que las actualizaciones pospuestas se ejecuten
 
-print(parent:GetChildren()) -- { Child two }
+print(parent:GetChildren()) -- { Child dos }
 ```
 
 !!! warning
-	When using state objects, note that old children *won't* be destroyed, only
-	unparented - it's up to you to decide if/when children need to be destroyed.
+	Al usar state objects, fijate que los children viejos *no serán* destruidos, 
+	solo se les quitará el parent - depende de ti decidir cuándo/si los children 
+	necesitan ser destruidos.
 
-	If you're using a helper like [ComputedPairs](../computedpairs), instance
-	cleanup is handled for you by default (though this is configurable).
+	Si estás usando un helper como [ComputedPairs](../computedpairs), la limpieza 
+	de instancias es controlada por defecto por ti (aunque esto es ajustable).
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

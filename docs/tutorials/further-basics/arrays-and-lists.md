@@ -1,7 +1,7 @@
-Efficiently working with tables can be difficult. Let's learn about the tools
-Fusion provides to make working with arrays and tables easier.
+Trabajar eficientemente con tablas puede ser difícil. Aprendamos acerca de las 
+herramientas que Fusion proporciona para que trabajar con arrays y tablas sea más fácil.
 
-??? abstract "Required code"
+??? abstract "Código necesario"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -17,9 +17,9 @@ Fusion provides to make working with arrays and tables easier.
 
 ## Computed Arrays
 
-Suppose we have a state object storing an array of numbers, and we'd like to
-create a computed object which doubles each number. You could achieve this with
-a for-pairs loop:
+Supón que tenemos un state object que guarda una array de números, y queremos crear 
+un computed object el cual duplique cada número. Podemos lograr esto usando un loop 
+for-pairs:
 
 ```Lua linenums="7" hl_lines="3-9"
 local numbers = State({1, 2, 3, 4, 5})
@@ -35,10 +35,10 @@ end)
 print(doubledNumbers:get()) --> {2, 4, 6, 8, 10}
 ```
 
-While this works, it's pretty verbose. To make this code simpler, Fusion has a
-special computed object designed for processing tables, known as `ComputedPairs`.
+Aunque esto funciona, es muy verboso. Para hacer este código más simple, Fusion tiene 
+un computed object especial diseñado para procesar tablas, conocido como `ComputedPairs`.
 
-To use it, we need to import `ComputedPairs` from Fusion:
+Para usarlo, tenemos que importar `ComputedPairs` desde Fusion:
 
 ```Lua linenums="1" hl_lines="7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -49,9 +49,8 @@ local Computed = Fusion.Computed
 local ComputedPairs = Fusion.ComputedPairs
 ```
 
-`ComputedPairs` acts similarly to the for-pairs loop we wrote above - it goes
-through each entry of the array, processes the value, and saves it into the
-new array:
+`ComputedPairs` actúa de manera similar a el loop for-pairs que escribimos arriba - este 
+va por cada entrada de la array, procesa el valor, y lo guarda dentro de la nueva array:
 
 ```Lua linenums="8" hl_lines="3-5"
 local numbers = State({1, 2, 3, 4, 5})
@@ -63,39 +62,39 @@ end)
 print(doubledNumbers:get()) --> {2, 4, 6, 8, 10}
 ```
 
-This can be used to process any kind of table, not just arrays. Notice how the
-keys stay the same, and the value is whatever you return:
+Esto puede ser usado para procesar cualquier tipo de tabla, no solo arrays. Observa que 
+las keys son las mismas, y el valor es lo que sea que tu regreses:
 
 ```Lua linenums="8"
-local data = State({Blue = "good", Green = "bad"})
+local data = State({Blue = "bueno", Green = "malo"})
 
 local processedData = ComputedPairs(data, function(colour, word)
-	return colour .. " is " .. word
+	return colour .. " es " .. word
 end)
 
-print(processedData:get()) --> {Blue = "Blue is good", Green = "Green is bad"}
+print(processedData:get()) --> {Blue = "Blue es bueno", Green = "Green es malo"}
 ```
 
 -----
 
-## Cleaning Up Values
+## Limpiando Valores
 
-Sometimes, you might use `ComputedPairs` to generate lists of instances, or
-other similar data types. When we're done with these, we need to destroy them.
+A veces, podrías usar `ComputedPairs` para generar listas de instancias, o otro 
+tipo de datos parecido. Cuando acabemos con estos, necesitamos destruirlos.
 
-Conveniently, `ComputedPairs` already cleans up some types when they're removed
-from the output array:
+Convenientemente, `ComputedPairs` ya limpia algunos tipos cuando son eliminados 
+de la array generada:
 
-- returned instances will be destroyed
-- returned event connections will be disconnected
-- returned functions will be run
-- returned objects will have their `:Destroy()` or `:destroy()` methods called
-- returned arrays will have their contents cleaned up
+- instancias regresadas serán destruidas
+- conexiones a eventos regresadas serán destruidas
+- funciones regresadas serán ejecutadas
+- objetos regresados tendrán sus métodos `:Destroy()` o `:destroy()` ejecutados
+-array regresadas tendrán su contenido limpio
 
-This should cover most use cases by default. However, if you need to override
-this cleanup behaviour, you can pass in an optional `destructor` function as
-the second argument. It will be called any time a generated value is removed or
-overwritten, so you can clean it up:
+Esto debería cubrir la mayoría de usos por defecto. Sin embargo, si necesitas anular 
+este comportamiento de limpieza, puedes pasar una función opcional `destructor` como 
+un segundo argumento. Cuando el valor generado es eliminado o anulado, será ejecutado 
+para que lo puedas limpiar:
 
 === "Lua"
 	```Lua linenums="8" hl_lines="8-10"
@@ -104,27 +103,26 @@ overwritten, so you can clean it up:
 	local greetings = ComputedPairs(
 		names,
 		function(index, name)
-			return "Hello, " .. name
+			return "Hola, " .. name
 		end,
 		function(greeting)
-			print("Removed: " .. greeting)
+			print("Eliminado: " .. greeting)
 		end
 	)
 
 	names:set({"John", "Trey", "Charlie"})
 	```
-=== "Expected output"
+=== "Output esperado"
 	```
-	Removed: Hello, Dave
-	Removed: Hello, Sebastian
+	Eliminado: Hola, Dave
+	Eliminado: Hola, Sebastian
 	```
 
 -----
 
-## Optimisation
+## Optimización
 
-To improve performance, `ComputedPairs` doesn't recalculate a key if its value
-stays the same:
+Para mejorar el rendimiento, `ComputedPairs` no recalcula una key si su valor sigue igual:
 
 === "Lua"
 	```Lua linenums="8"
@@ -134,14 +132,14 @@ stays the same:
 		Three = 3
 	})
 
-	print("Creating processedData...")
+	print("Creando processedData...")
 
 	local processedData = ComputedPairs(data, function(key, value)
-		print("  ...recalculating key: " .. key)
+		print("  ...recalculando key: " .. key)
 		return value * 2
 	end)
 
-	print("Changing the values of some keys...")
+	print("Cambiando los valores de algunas keys...")
 	data:set({
 		One = 1,
 		Two = 100,
@@ -149,102 +147,103 @@ stays the same:
 		Four = 4
 	})
 	```
-=== "Expected output"
+=== "Output esperado"
 	```
-	Creating processedData...
-	  ...recalculating key: One
-	  ...recalculating key: Two
-	  ...recalculating key: Three
-	Changing the values of some keys...
-	  ...recalculating key: Two
-	  ...recalculating key: Four
+	Creando processedData...
+	  ...recalculando key: One
+	  ...recalculando key: Two
+	  ...recalculando key: Three
+	Cambiando los valores de algunas keys...
+	  ...recalculando key: Two
+	  ...recalculando key: Four
 	```
 
-Because the keys `Two` and `Four` have different values after the change,
-they're recalculated. However, `One` and `Three` have the same values, so
-they'll be reused instead:
+Debido a que las keys `Two` y `Four` tienen diferentes valores después del cambio, 
+son recalculadas. Sin embargo, `One` y `Three` tienen los mismos valores, así que 
+se reutilizarán en su lugar:
 
-![Diagram showing how keys are cached](OptimisedKeyValues.png)
+![Diagrama que muestra cómo las keys se almacenan en el caché](OptimisedKeyValues.png)
 
-This is a simple rule which should work well for tables with 'stable keys' (keys
-that don't change as other values are added and removed).
+Esto es una simple regla que debería funcionar adecuadamente para las tablas con 
+'stable keys' (keys que no cambian cuando otros valores son agregados o eliminados).
 
-However, if you're working with 'unstable keys' (e.g. an array where values can
-move to different keys) then you can get unnecessary recalculations. In the
-following code, `Yellow` gets recalculated, because it moves to a different key:
+Sin embargo, si estás trabajando con 'keys inestables' (ej. una array en la cual los 
+valores se pueden mover a diferentes keys) puedes obtener recálculos innecesarios. 
+En el siguiente código, `Yellow` es recalculado, porque se mueve a una key diferente:
 
 === "Lua"
 	```Lua linenums="8"
 	local data = State({"Red", "Green", "Blue", "Yellow"})
 
-	print("Creating processedData...")
+	print("Creando processedData...")
 
 	local processedData = ComputedPairs(data, function(key, value)
-		print("  ...recalculating key: " .. key .. " value: " .. value)
+		print("  ...recalculando key: " .. key .. " valor: " .. value)
 		return value
 	end)
 
-	print("Removing Blue...")
+	print("Eliminando Blue...")
 	data:set({"Red", "Green", "Yellow"})
 	```
-=== "Expected output"
+=== "Output esperado"
 	```
-	Creating processedData...
-	  ...recalculating key: 1 value: Red
-	  ...recalculating key: 2 value: Green
-	  ...recalculating key: 3 value: Blue
-	  ...recalculating key: 4 value: Yellow
+	Creando processedData...
+	  ...recalculando key: 1 valor: Red
+	  ...recalculando key: 2 valor: Green
+	  ...recalculando key: 3 valor: Blue
+	  ...recalculando key: 4 valor: Yellow
 	Moving the values around...
-	  ...recalculating key: 3 value: Yellow
+	  ...recalculando key: 3 valor: Yellow
 	```
 
-You can see this more clearly in the following diagram - the value of key 3 was
-changed, so it triggered a recalculation:
+Puedes ver esto más claramente en el siguiente diagrama - el valor de la key 3 
+ha cambiado, así que provocó una recalculación:
 
-![Diagram showing unstable keys](UnstableKeys.png)
+![Diagrama que muestra las keys inestables](UnstableKeys.png)
 
-If the keys aren't needed, you can use your values as keys instead. This makes
-them stable, because they won't be affected by other insertions or removals:
+Si las keys no se necesitan, puedes usar tus valores como keys. Esto las hace 
+estables, ya que no serán afectadas por otras inserciones o extracciones:
 
 === "Lua"
 	```Lua linenums="8" hl_lines="1 5-8 11"
 	local data = State({Red = true, Green = true, Blue = true, Yellow = true})
 
-	print("Creating processedData...")
+	print("Creando processedData...")
 
 	local processedData = ComputedPairs(data, function(key)
-		print("  ...recalculating key: " .. key)
+		print("  ...recalculando key: " .. key)
 		return key
 	end)
 
-	print("Removing Blue...")
+	print("Eliminando Blue...")
 	data:set({Red = true, Green = true, Yellow = true})
 	```
-=== "Expected output"
+=== "Output esperado"
 	```
-	Creating processedData...
-	  ...recalculating key: Red
-	  ...recalculating key: Green
-	  ...recalculating key: Blue
-	  ...recalculating key: Yellow
-	Removing Blue...
+	Creando processedData...
+	  ...recalculando key: Red
+	  ...recalculando key: Green
+	  ...recalculando key: Blue
+	  ...recalculando key: Yellow
+	Eliminando Blue...
 	```
 
-Notice that, when we remove `Blue`, no other values are recalculated. This is
-ideal, and means we're not doing unnecessary processing:
+Fijate que, cuando eliminamos `Blue`, ningún otro valor es recalculado. Esto es 
+ideal, y significa que no estamos haciendo procesos innecesarios:
 
-![Diagram showing stable keys](StableKeys.png)
+![Diagrama que muestra las keys estables](StableKeys.png)
 
-This is especially important when optimising 'heavy' arrays, for example long
-lists of instances. The less unnecessary recalculation, the better!
+Esto es especialmente importante al optimizar arrays ‘pesadas’, por ejemplo largas 
+listas de instancias. ¡Entre menos recálculo innecesario, mejor!
 
 -----
 
-With that, you should now have a basic idea of how to work with table state in
-Fusion. When you get used to this workflow, you can express your logic cleanly,
-and get great caching and cleanup behaviour for free.
+Con esto, deberías tener una idea básica de como trabajar con state de tablas en 
+Fusion. Cuando te acostumbres a este flujo de trabajo, puedes expresar tu lógica 
+hábilmente, y tener un buen comportamiento de almacenamiento de caché y limpieza 
+gratuitamente.
 
-??? abstract "Finished code"
+??? abstract "Código finalizado"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -256,13 +255,17 @@ and get great caching and cleanup behaviour for free.
 
 	local data = State({Red = true, Green = true, Blue = true, Yellow = true})
 
-	print("Creating processedData...")
+	print("Creando processedData...")
 
 	local processedData = ComputedPairs(data, function(key)
-		print("  ...recalculating key: " .. key)
+		print("  ...recalculando key: " .. key)
 		return key
 	end)
 
-	print("Removing Blue...")
+	print("Eliminando Blue...")
 	data:set({Red = true, Green = true, Yellow = true})
 	```
+
+-----
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

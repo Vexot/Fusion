@@ -2,37 +2,39 @@
 function New(className: string): (props: {[string | Symbol]: any}) -> Instance
 ```
 
-Constructs and returns a new instance, with options for setting properties,
-event handlers and other attributes on the instance right away.
+Construye y regresa una nueva instancia con opciones para ajustar propiedades, 
+handlers de eventos y otros atributos en la instancia de inmediato.
 
-The function has curried parameters - when calling `New` with the `className`
-parameter, it'll return a second function accepting the `props` parameter. This
-is done to take advantage of some function call syntax sugar in Lua:
+La función tiene parámetros currificados (curried) - cuando se llama `New` con el 
+parámetro `className`, este regresara una segunda función que acepta el parámetro 
+`props`. Esto se hace para aprovechar el azúcar sintáctico para llamadas a 
+funciones en Lua:
 
 ```Lua
 local myInstance = New("Frame")({...})
--- is equivalent to:
+-- es equivalente a:
 local myInstance = New "Frame" {...}
 ```
 
-!!! warning "Instance cleanup"
-	Make sure to destroy your instances properly. Without using an explicit
-	`:Destroy()`, it's easy to accidentally introduce memory leaks.
+!!! warning "Limpiando instancias"
+	Asegúrate de destruir tus instancias adecuadamente. Sin usar un explícito 
+	`:Destroy()`, es fácil introducir accidentalmente fugas en la memoria (memory leaks).
 
-	For lists of instances, you can use [ComputedPairs](../computedpairs), which
-	comes with good defaults for instance caching and cleanup.
-
------
-
-## Parameters
-
-- `className: string` - the class type of instance to create
-- `props: {[string | Symbol]: any}` - a table of properties, event handlers and
-other attributes to apply to the instance
+	Para listas de instancias, puedes usar [ComputedPairs](../computedpairs), 
+	el cual viene con buenos valores predeterminados para la limpieza y caché 
+	de instancias.
 
 -----
 
-## Example Usage
+## Parámetros
+
+- `className: string` - el tipo de clase de la instancia que será creada
+- `props: {[string | Symbol]: any}` - una tabla de propiedades, controladores de 
+eventos y otros atributos que serán aplicados a la instancia
+
+-----
+
+## Ejemplo de Uso
 
 ```Lua
 local myButton: TextButton = New "TextButton" {
@@ -42,14 +44,14 @@ local myButton: TextButton = New "TextButton" {
 	AnchorPoint = Vector2.new(.5, .5),
 	Size = UDim2.fromOffset(200, 50),
 
-	Text = "Hello, world!",
+	Text = "¡Hola, mundo!",
 
 	[OnEvent "Activated"] = function()
-		print("The button was clicked!")
+		print("¡El botón fue cliqueado!")
 	end,
 
 	[OnChange "Name"] = function(newName)
-		print("The button was renamed to:", newName)
+		print("El botón fue renombrado a:", newName)
 	end,
 
 	[Children] = New "UICorner" {
@@ -60,60 +62,58 @@ local myButton: TextButton = New "TextButton" {
 
 -----
 
-## Passing In Properties
+## Pasando Propiedades
 
-The `props` table uses a mix of string and symbol keys to specify attributes of
-the instance which should be set.
+La tabla `props` usa una mezcla de keys de string y symbol para especificar atributos 
+de la instancia que deben ser establecidos.
 
-String keys are treated as property declarations - values passed in will be set
-upon the instance:
+Las keys de string son tratadas como declaraciones de propiedad - los valores pasados serán 
+establecidos en la instancia:
 
 ```Lua
 local example = New "Part" {
-	-- sets the Position property
+	-- establece la propiedad Position
 	Position = Vector3.new(1, 2, 3)
 }
 ```
 
-Additionally, passing in [state objects](api-reference/state.md) or
-[computed objects](api-reference/computed.md) will bind the property value; when
-the value of the object changes, the property will also update on the next render
-step:
+Además, al pasar [state objects](api-reference/state.md) o [computed objects](api-reference/computed.md) 
+se vincula el valor de la propiedad; cuando el valor del objeto cambia, la propiedad también 
+se actualiza en el siguiente render step:
 
 ```Lua
 local myName = State("Bob")
 
 local example = New "Part" {
-	-- initially, the Name will be set to Bob
+	-- al principio, el Name será establecido a Bob
 	Name = myName
 }
 
--- change the state object to store "John"
--- on the next render step, the part's Name will change to John
+-- se cambia el state object para guardar "John"
+-- en el siguiente render step, el Name de la parte será cambiado a John
 myName:set("John")
 ```
 
-Fusion provides additional symbol keys for other, specialised purposes - see
-their documentation for more info on how each one works:
+Fusion proporciona keys de symbol adicionales para otros propósitos especializados 
+- mira la documentación para más información en cómo funciona cada uno:
 
-- [Children](../children) - parents other instances into this
-instance
-- [OnEvent](../onevent) - connects a callback to an event on
-this instance
-- [OnChange](../onchange) - connects a callback to the
-`GetPropertyChangedSignal` event for a property on this instance
+- [Children](../children) - hace una instancia parent de otras instancias
+- [OnEvent](../onevent) - conecta un callback a un evento en esta instancia
+- [OnChange](../onchange) - conecta un callback al evento `GetPropertyChangedSignal` 
+para una propiedad en esta instancia
 
 -----
 
-## Default Properties
+## Propiedades Predeterminadas
 
-The `New` function provides its own set of 'sensible default' property values
-for some class types, which will be used in place of Roblox defaults. This is
-done to opt out of some legacy features and unhelpful defaults.
+La función `New` proporciona su propia colección de valores de propiedades 
+'sensible default' para algunos tipos de clase, que serán usados en lugar 
+de los valores predeterminados de Roblox. Esto se hace para optar por no usar 
+características heredadas y valores predeterminados poco útiles.
 
-You can see the default properties Fusion uses here:
+Puedes ver las propiedades predeterminadas que Fusion usa aqui:
 
-??? note "Default properties"
+??? note "Propiedades predeterminadas"
 	```Lua
 	ScreenGui = {
 		ResetOnSpawn = false,
@@ -210,3 +210,5 @@ You can see the default properties Fusion uses here:
 		BorderSizePixel = 0
 	}
 	```
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

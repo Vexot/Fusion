@@ -1,7 +1,7 @@
-Our UIs may use some data - called 'state' - to change how it appears. Let's
-learn how to store this data in Fusion.
+Nuestros UIs usan unos cuantos datos - llamados 'state' - para cambiar como aparecen. 
+Aprendamos a guardar estos datos en Fusion.
 
-??? abstract "Required code"
+??? abstract "Código necesario"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -10,29 +10,29 @@ learn how to store this data in Fusion.
 
 -----
 
-## What is State?
+## ¿Qué es State?
 
-State is (simplistically) the variables that determine what your UI looks like
-at a given point in time.
+State es (simplificando) las variables que determinan como tu UI se ve en un cierto 
+punto del tiempo.
 
-A simple example of this is a health bar. To know what the health bar looks like
-at any point in time, we need to know two things:
+Un simple ejemplo de esto es una barra de vida. Para saber como la barra de vida 
+se ve en cualquier cierto punto del tiempo, necesitamos saber dos cosas:
 
-- the current health to show
-- the max health of the player
+- la vida actual a mostrar
+- el máximo de vida del jugador
 
-These two variables are therefore known as the 'state' of the health bar. To
-show the health bar on the screen, we need to use the values of these variables.
+Por lo tanto, estas dos variables son conocidas como el 'state' de la barra de vida. 
+Para mostrar la barra de vida en pantalla, necesitamos usar los valores de estas variables.
 
 -----
 
-## Storing State
+## Guardando State
 
-Fusion provides some nice tools for manipulating state and using it in our UI,
-but in order to use those tools, we need to store our state in 'state objects' -
-simple OOP objects that store a single value.
+Fusion proporciona algunas herramientas buenas para manipular state y usarlo en 
+nuestro UI; pero para usar esas herramientas necesitamos guardar nuestro state 
+en 'state objects' - objetos simples que guardan un solo valor usando OOP.
 
-To use state objects, we first need to import the `State` constructor:
+Para usar state objects, primero tenemos que importar el constructor `State`:
 
 ```Lua linenums="1" hl_lines="4"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -41,8 +41,8 @@ local Fusion = require(ReplicatedStorage.Fusion)
 local State = Fusion.State
 ```
 
-Now, we can create a state object by calling the constructor. If you pass in a
-value, it'll be stored inside the state object:
+Ahora, podemos crear un state object llamando al constructor. Si pasas un valor, 
+este será guardado dentro del state object:
 
 ```Lua linenums="1" hl_lines="6"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -50,10 +50,10 @@ local Fusion = require(ReplicatedStorage.Fusion)
 
 local State = Fusion.State
 
-local message = State("Hello")
+local message = State("Hola")
 ```
 
-At any time, you can get the currently stored value with the `:get()` method:
+En cualquier momento puedes obtener el valor actualmente guardado con el método `:get()`:
 
 === "Lua"
 	```Lua linenums="1" hl_lines="7"
@@ -62,15 +62,15 @@ At any time, you can get the currently stored value with the `:get()` method:
 
 	local State = Fusion.State
 
-	local message = State("Hello")
-	print("The value is:", message:get())
+	local message = State("Hola")
+	print("El valor es:", message:get())
 	```
-=== "Expected output"
+=== "Output esperado"
 	``` hl_lines="1"
-	The value is: Hello
+	El valor es: Hola
 	```
 
-You can also set the value by calling `:set()` with a new value:
+También puedes establecer el valor llamando `:set()` con un nuevo valor:
 
 === "Lua"
 	```Lua linenums="1" hl_lines="9-10"
@@ -79,34 +79,36 @@ You can also set the value by calling `:set()` with a new value:
 
 	local State = Fusion.State
 
-	local message = State("Hello")
-	print("The value is:", message:get())
+	local message = State("Hola")
+	print("El valor es:", message:get())
 
-	message:set("World")
-	print("The new value is:", message:get())
+	message:set("Mundo")
+	print("El nuevo valor es:", message:get())
 	```
-=== "Expected output"
+=== "Output esperado"
 	``` hl_lines="2"
-	The value is: Hello
-	The new value is: World
+	El valor es: Hola
+	El nuevo valor es: Mundo
 	```
 
 -----
 
-With that, you should have the basic idea of state objects - they're kind of
-like variables, but in object form. These objects will later act like 'inputs'
-into Fusion's other state management tools.
+Con eso, deberías tener una idea básica de state objects - son algo como variables, 
+pero en forma de objeto. Estos objetos posteriormente actuarán como 'inputs' hacia 
+otras herramientas de manejo de state en Fusion.
 
-??? summary "Finished code"
+??? summary "Código finalizado"
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local Fusion = require(ReplicatedStorage.Fusion)
 
 	local State = Fusion.State
 
-	local message = State("Hello")
-	print("The value is:", message:get())
+	local message = State("Hola")
+	print("El valor es:", message:get())
 
-	message:set("World")
-	print("The new value is:", message:get())
+	message:set("Mundo")
+	print("El nuevo valor es:", message:get())
 	```
+
+!!! quote "Última Actualización de la Localización 26/09/2021"

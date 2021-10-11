@@ -1,10 +1,10 @@
-!!! warning "Under construction"
-	This page is under construction - information may be incomplete or missing.
+!!! warning "En construcción"
+	Esta página está en construcción - la información puede faltar o estar incompleta.
 
-Using everything we've learned so far, let's build a complete UI to see how
-Fusion's basic tools work together in a real project.
+Aplicando todo lo que hemos aprendido hasta el momento, construyamos una UI para 
+ver como las herramientas básicas de Fusion trabajan juntas en un proyecto verdadero.
 
-??? abstract "Required code"
+??? abstract "Código necesario"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -21,13 +21,13 @@ Fusion's basic tools work together in a real project.
 
 -----
 
-## Building The UI
+## Construyendo La UI
 
-We'll be creating a button which shows how many times you've clicked it - this
-is often used as an introductory UI example for many libraries and frameworks
-because it involves UI, event handling and state management together.
+Crearemos un botón el cual muestra la cantidad de veces que ha sido bloqueado - 
+esto es un ejemplo común usado como introducción a la UI en muchas bibliotecas 
+y frameworks porque este involucra UI.
 
-We'll start by creating a ScreenGui to contain our button:
+Comenzaremos creando un ScreenGui para mantener nuestro botón:
 
 ```Lua linenums="1" hl_lines="12-17"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -50,8 +50,8 @@ local gui = New "ScreenGui" {
 
 ```
 
-Next, we'll create a TextButton we can click, and a message TextLabel which will
-eventually show how many clicks we've performed:
+Luego, crearemos un TextButton que podemos cliquear, y un mensaje en un TextLabel 
+para mostrar eventualmente la cantidad de clics realizados.
 
 ```Lua linenums="12" hl_lines="7-29"
 local gui = New "ScreenGui" {
@@ -69,7 +69,7 @@ local gui = New "ScreenGui" {
 
 			BackgroundColor3 = Color3.fromRGB(85, 255, 0),
 
-			Text = "Click me!"
+			Text = "¡Cliqueame!"
 		},
 
 		New "TextLabel" {
@@ -80,24 +80,24 @@ local gui = New "ScreenGui" {
 
 			BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 
-			Text = "Placeholder message..."
+			Text = "Mensaje provisional..."
 		}
 	}
 }
 
 ```
 
-With just these three instances, we have enough to work with for the rest of
-this tutorial. Running the above script gives us this:
+Con estas tres instancias, tenemos suficiente con lo que trabajar por lo que 
+queda del tutorial. Ejecutando el código anterior nos da esto:
 
-![Image of basic UI](BasicUI.png)
+![Imagen de UI básica](BasicUI.png)
 
 -----
 
-## Adding State
+## Agregando State
 
-Now, let's add some state to make our UI dynamic. Let's start with a state
-object to store the number of clicks:
+Ahora, agreguemos algunos state para hacer nuestra UI dinámica. Comencemos 
+con un state object para guardar el número de clics:
 
 ```Lua linenums="12" hl_lines="1"
 local numClicks = State(0)
@@ -112,11 +112,11 @@ local gui = New "ScreenGui" {
 
 ```
 
-Now, we can replace the placeholder text with some computed state, to turn our
-number of clicks into a fully-formed message:
+Ahora, podemos reemplazar el texto provisional con un computed state, para 
+tornar el número de clics dentro de un mensaje completo:
 
 ```Lua linenums="29" hl_lines="12-14"
-			Text = "Click me!"
+			Text = "¡Cliqueame!"
 		},
 
 		New "TextLabel" {
@@ -128,27 +128,28 @@ number of clicks into a fully-formed message:
 			BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 
 			Text = Computed(function()
-				return "You clicked " .. numClicks:get() .. " times."
+				return "Cliqueaste " .. numClicks:get() .. " veces."
 			end)
 		}
 	}
 }
 ```
 
-You'll now notice the message's text reflects the number of clicks stored in
-`numClicks`:
+Ahora te darás cuenta que el mensaje refleja en el texto el número de clics 
+guardados en `numClicks`:
 
-![Image of UI with message using computed state](UIWithState.png)
+![Imagen de la UI con el mensaje usando computed state](UIWithState.png)
 
 -----
 
-## Listening for Clicks
+## Monitoreando Clics
 
-Now that we have our UI in place and it's working with our state, we just need
-to increment the number stored in `numClicks` when we click the button.
+Ahora que ya tenemos nuestra UI en su lugar y funciona con nuestro state, solo 
+tenemos que incrementar el número de clics guardados en `numClicks` cuando 
+liqueamos el botón.
 
-To start, let's add an `OnEvent` handler for the button's Activated event. This
-will run when we click the button:
+Para comenzar, agreguemos un handler de `OnEvent` para el evento Activated del 
+botón. Esto se ejecutará cuando cliqueamos el botón.
 
 ```Lua hl_lines="12-15"
 	[Children] = {
@@ -160,19 +161,19 @@ will run when we click the button:
 
 			BackgroundColor3 = Color3.fromRGB(85, 255, 0),
 
-			Text = "Click me!",
+			Text = "¡Cliqueame!",
 
 			[OnEvent "Activated"] = function()
-				-- the button was clicked!
-				-- TODO: increment state
+				-- ¡el botón fue cliqueado!
+				-- TODO: incrementar el state
 			end
 		},
 
 		New "TextLabel" {
 ```
 
-Then, to increment the state, we can `:get()` the number of clicks, add one,
-then `:set()` it to the new value:
+Luego, para incrementar el state, podemos usar `:get()` para conseguir el número 
+de clics, sumarle uno, y establecerlo con `:set()` con el nuevo valor:
 
 ```Lua hl_lines="14"
 	[Children] = {
@@ -184,10 +185,10 @@ then `:set()` it to the new value:
 
 			BackgroundColor3 = Color3.fromRGB(85, 255, 0),
 
-			Text = "Click me!",
+			Text = "¡Cliqueame!",
 
 			[OnEvent "Activated"] = function()
-				-- the button was clicked!
+				-- ¡el botón fue cliqueado!
 				numClicks:set(numClicks:get() + 1)
 			end
 		},
@@ -195,16 +196,18 @@ then `:set()` it to the new value:
 		New "TextLabel" {
 ```
 
-That's everything - try clicking the button, and watch the message change in
-response:
+Eso es todo - intenta cliquear el botón, y observa el mensaje cambiar en respuesta:
 
-![Image of finished UI responding to clicks](FinishedUI.png)
+
+![Imagen de la UI terminada respondiendo ante clics](FinishedUI.png)
 
 -----
 
-If you've managed to follow along, congratulations - you should now have a good
-understanding of Fusion's fundamental concepts!
+Si has logrado seguir a lo largo del tutorial, felicidades - ¡ahora deberías tener 
+un buen conocimiento en los conceptos fundamentales de Fusion!
 
-With just these tools alone, you'll be able to build almost anything you can
-think of. However, Fusion still has more tools available to make your code
-simpler and easier to manage - we'll cover this in *'Further Basics'*.
+Con solo estas herramientas, serás capaz de construir casi todo lo que puedas pensar. 
+Sin embargo, Fusion aún tiene más herramientas disponibles para hacer tu código más 
+fácil y simple de gestionar - cubriremos esto en *'Otros Fundamentos'*.
+
+!!! quote "Última Actualización de la Localización 26/09/2021"
