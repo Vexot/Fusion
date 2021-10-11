@@ -6,49 +6,50 @@ function ComputedPairs(
 ): Computed
 ```
 
-Constructs and returns a new computed object, which generates a table by
-processing values from another table.
+Construye y regresa un nuevo computed object, lo que genera una tabla procesando 
+valores de otra tabla.
 
-The input table may be passed in directly, or inside a state object or computed
-object.
+La tabla ingresada puede ser pasada directamente, o dentro de un state object o 
+computed object.
 
-The output table will have all the keys of the input table, but all the values
-will be passed through the `processor` function.
+La tabla generada tendrá todas las keys de la tabla ingresada, pero todos los 
+valores serán pasados mediante la función `processor`.
 
-When values are removed from the output table, they may optionally be passed
-through a `destructor` function. This allows you to properly clean up some types
-such as instances - [more details can be found in the tutorial.](../../../tutorials/further-basics/arrays-and-lists)
-
------
-
-## Parameters
-
-- `inputTable: StateOrValue<{[any]: any}>` - a table, or state object containing
-a table, which will be read by this ComputedPairs
-- `processor: (key: any, value: any) -> any` - values from the input table will
-be passed through this function and placed in the table returned by this object
-- `destructor: ((any) -> any)?` - when a value is removed from the output
-table, it will be passed to this function for cleanup. If not provided, defaults
-to a Maid-like cleanup function.
+Cuando los valores son eliminados de la tabla generada, pueden ser pasados 
+opcionalmente mediante una función `destructor`. Esto permite que puedas limpiar 
+algunos tipos adecuadamente como instancias - [más detalles pueden ser encontrados en el 
+tutorial.](../../../tutorials/further-basics/arrays-and-lists)
 
 -----
 
-## Object Methods
+## Parámetros
+
+- `inputTable: StateOrValue<{[any]: any}>` - una tabla, o state object que contiene 
+una tabla, que será procesado por este ComputedPairs
+- `processor: (key: any, value: any) -> any` - valores de la tabla ingresada serán 
+pasados mediante esta función y colocados en la tabla regresada por este objeto
+- `destructor: ((any) -> any)?` - cuando un valor es eliminado de la tabla generada, 
+será pasado a esta función para su limpieza. Si no se proporciona, se establece por 
+defecto a una función de limpieza como Maid.
+
+-----
+
+## Métodos del Objeto
 
 ### `get()`
 
 ```Lua
 function ComputedPairs:get(): any
 ```
-Returns the cached value of this computed object, which will be the output table
-of key/value pairs.
+Regresa el valor almacenado de este computed object, el cual será la tabla generada 
+de key/value pairs.
 
-If dependencies are currently being detected (e.g. inside a computed callback),
-then this computed object will be used as a dependency.
+Si las dependencias actualmente están siendo detectadas (ej. dentro de un computed 
+callback), entonces este computed object será usado como una dependencia.
 
 -----
 
-## Example Usage
+## Ejemplo de Uso
 
 ```Lua
 local playerList = State({
@@ -67,3 +68,7 @@ local textLabels = ComputedPairs(playerList, function(key, value)
 	}
 end)
 ```
+
+-----
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

@@ -1,49 +1,51 @@
-All backgrounds are PNG format, and have been optimised for these resolutions:
+Todos los fondos están en el formato PNG, y han sido optimizados para estas resoluciones:
 
-- Ultrawide (7680 x 1440)
-- Widescreen (2560 x 1440)
+- Ultra ancho (7680 x 1440)
+- Pantalla ancha (2560 x 1440)
 - 3:2 (2256 x 1504)
-- Mobile (1125 x 2436)
+- Móvil (1125 x 2436)
 
 -----
 
-## Construction
+## Construcción
 
-The Fusion logo, with construction lines shown and other geometric patterns.
-Background is 100% black, ideal for OLED screens.
+El logo de Fusion, con líneas de construcción mostradas y otros patrones geométricos. 
+El fondo es 100% negro, ideal para pantallas OLED.
 
-![Sample of Construction background](samples/Construction.jpg)
+![Muestra del fondo de construcción](samples/Construction.jpg)
 
-- [Ultrawide](Construction-Ultrawide.png)
-- [Widescreen](Construction-Widescreen.png)
+- [Ultra ancho](Construction-Ultrawide.png)
+- [Pantalla ancha](Construction-Widescreen.png)
 - [3:2](Construction-3_2.png)
-- [Mobile](Construction-Mobile.png)
+- [Móvil](Construction-Mobile.png)
 
 -----
 
-## Glow
+## Brillo
 
-A centred Fusion logo emitting light on a dark background.
-Background is 100% black, ideal for OLED screens.
+Un logo centrado de Fusion emitiendo luz en un fondo oscuro. El fondo es 100% negro, 
+ideal para pantallas OLED.
 
-![Sample of Glow background](samples/Glow.jpg)
+![Muestra de un fondo con brillo](samples/Glow.jpg)
 
-- [Ultrawide](Glow-Ultrawide.png)
-- [Widescreen](Glow-Widescreen.png)
+- [Ultra ancho](Glow-Ultrawide.png)
+- [Pantalla ancha](Glow-Widescreen.png)
 - [3:2](Glow-3_2.png)
-- [Mobile](Glow-Mobile.png)
+- [Móvil](Glow-Mobile.png)
 
 -----
 
-## Glow (Alternate)
+## Brillo (Alterno)
 
-A centred Fusion logo emitting light on a dark background.
-Uses an alternate design of the logo, which is now used for livestreams.
-Background is 100% black, ideal for OLED screens.
+Un logo centrado de Fusion emitiendo luz en un fondo oscuro. Usa un diseño alterno del 
+logo, el cual ahora es usado para transmiciones en vivo. El fondo es 100% negro, ideal 
+para pantallas OLED.
 
-![Sample of GlowAlt background](samples/GlowAlt.jpg)
+![Muestra de un fondo con brillo alterno](samples/GlowAlt.jpg)
 
-- [Ultrawide](GlowAlt-Ultrawide.png)
-- [Widescreen](GlowAlt-Widescreen.png)
+- [Ultra ancho](GlowAlt-Ultrawide.png)
+- [Pantalla ancha](GlowAlt-Widescreen.png)
 - [3:2](GlowAlt-3_2.png)
-- [Mobile](GlowAlt-Mobile.png)
+- [Móvil](GlowAlt-Mobile.png)
+
+!!! quote "Última Actualización de la Localización 25/09/2021"

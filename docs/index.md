@@ -19,34 +19,34 @@
 </script>
 
 <section class="fusion-home-landing">
-    <h1>Build your best UI.</h1>
+    <h1>Construye tu mejor UI.</h1>
     <p>
-        Fusion is a modern reactive UI library, built specifically for
+        Fusion es una biblioteca reactiva moderna, construida específicamente para
         <a href="https://developer.roblox.com/">Roblox</a>
-        and
+        y
         <a href="https://luau-lang.org/">Luau</a>.
     </p>
     <p>
-        Build your UI with a declarative syntax that's easy to read and write.<br>
-        Plug in live data with simple, flexible, truly reactive state management.<br>
-        Deliver a fast, smooth experience to everyone - on mobile, console, PC or in VR.
+        Construye tu UI con una sintaxis declarativa que es fácil de leer y escribir.<br>
+        Conecta datos en vivo con una gestión de estados realmente simple, flexible y reactiva.<br>
+        Entrega una experiencia impecable y rápida a todos - en móvil, consola, PC o VR.
     </p>
     <nav>
-        <a href="tutorials/" class="arrow-link">Get started</a>
-        <a href="https://github.com/Elttob/Fusion/releases" class="arrow-link external-link">Download latest</a>
+        <a href="tutorials/" class="arrow-link">Empezar</a>
+        <a href="https://github.com/Elttob/Fusion/releases" class="arrow-link external-link">Descargar último lanzamiento</a>
     </nav>
 </section>
 
 -----
 
 <section class="fusion-home-float">
-    <h2>Declarative UI syntax</h2>
+    <h2>Sintaxis declarativa de UI</h2>
     <p>
-        Fusion provides a natural, easy to read syntax, so you can focus on what
-        your UI should look like, without worrying about the implementation.
+        Fusion provee una sintaxis natural y fácil de leer, para que te puedas 
+        enfocar en cómo tu UI debe verse, sin preocuparte acerca de su implementación.
     </p>
     <p>
-        Focus on the properties and children in your UI, not verbose APIs.
+        Enfócate en las propiedades y los children en tu UI, no en APIs verbosos.
     </p>
 </section>
 
@@ -59,10 +59,10 @@ return New "ScreenGui" {
         AnchorPoint = Vector2.new(.5, .5),
         Size = UDim2.fromOffset(200, 50),
 
-        Text = "Fusion is fun :)",
+        Text = "Fusion es divertido :)",
 
         [OnEvent "Activated"] = function()
-            print("Clicked!")
+            print("¡Cliqueado!")
         end
     }
 }
@@ -71,13 +71,13 @@ return New "ScreenGui" {
 -----
 
 <section class="fusion-home-float">
-    <h2>Reactive state management</h2>
+    <h2>Gestión de estados reactivos</h2>
     <p>
-        Fluidly write all your calculations, and they'll be automatically run as
-        your variables change.
+        Escribe fluidamente todos tus cálculos, y se ejecutarán automáticamente 
+        cuando sus variables cambian.
     </p>
     <p>
-        Fusion accelerates and optimises all of your computations for you.
+        Fusion acelera y optimiza todos tus cálculos por ti.
     </p>
 </section>
 
@@ -89,7 +89,7 @@ local doubleCoins = Computed(function()
 end)
 
 local coinsMessage = Computed(function()
-    return "You have " .. numCoins:get() .. " coins."
+    return "Tienes " .. numCoins:get() .. " monedas."
 end)
 
 return New "TextLabel" {
@@ -100,13 +100,15 @@ return New "TextLabel" {
 -----
 
 <section class="fusion-home-float">
-    <h2>Animate everything</h2>
+    <h2>Anima todo</h2>
     <p>
-        Bring your UI to life with the simplest, most universal animation tools
-        of any Roblox library. Access tweens and springs with one line of code.
+        Dale vida a tu UI con las herramientas de animación más fáciles y 
+        universales de cualquier biblioteca de Roblox. Accede a tweens y 
+        springs con una línea de código.
     </p>
     <p>
-        Animate anything instantly, no refactoring or performance tricks required.
+        Anima cualquier cosa instantáneamente, sin necesidad de usar 
+        refactorización o trucos de rendimiento.
     </p>
 </section>
 
@@ -120,33 +122,34 @@ return New "TextLabel" {
     Position = Spring(position, 25, 0.2),
 
     Text = Computed(function()
-        return "Players online: " .. math.floor(smoothCount:get())
+        return "Jugadores en línea: " .. math.floor(smoothCount:get())
     end)
 }
 ```
 
 <section class="fusion-home-centre" style="margin-top: 5em">
     <img style="display: block; width: 100%; height: auto;" src="index/performance.svg" alt="Vector illustration of different device types" width="586" height="200">
-    <h2>Fusion is built with performance in mind, from idea to implementation.</h2>
+    <h2>Fusion es construido teniendo en cuenta el rendimiento, desde la idea hasta la implementación.</h2>
     <p>
-        From top-end desktop PCs to budget phones from years ago, Fusion
-        delivers an exceptionally light, fluid experience as standard.
+        Desde PCs de escritorio de gama alta hasta celulares de hace años, 
+        Fusion entrega una experiencia excepcionalmente impecable y ligera 
+        como estándar.
     </p>
     <p>
-        Build your most beautiful, bold, animated interfaces with confidence -
-        Fusion scales to high-refresh-rate devices and VR effortlessly.
+        Construye tus interfaces más bonitas, intrépidas y animadas con 
+        confianza - Fusion se adapta a dispositivos con alta frecuencia 
+        de actualización y VR.
     </p>
 </section>
 
 <section class="fusion-home-centre" style="margin-top: 5em">
     <img style="display: block; width: 100%; height: auto;" src="index/get-started.svg" alt="Vector illustration of 'get started' process" width="586" height="200">
-    <h2>Get up and running with Fusion in minutes.</h2>
+    <h2>Ponte en marcha con Fusion en minutos.</h2>
     <p>
-        Downloading and importing Fusion into Studio is quick, easy and 100%
-        free.
+       Descargar e importar Fusion a Studio es rápido, fácil y 100% gratis.
     </p>
     <p>
-        The Fusion starter tutorials are aimed at a wide range of creators, from
-        seasoned UI developers to novice scripters.
+       Los tutoriales para comenzar están dirigidos a una amplia gama de 
+       creadores, desde desarrolladores de UI expertos a programadores novatos.
     </p>
 </section>

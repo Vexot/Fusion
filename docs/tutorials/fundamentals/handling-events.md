@@ -1,7 +1,7 @@
-Now that we can create instances, let's learn how to handle events and property
-changes.
+Ahora que podemos crear instancias, aprendamos cómo manejar eventos y cambios 
+de propiedad.
 
-??? abstract "Required code"
+??? abstract "Código necesario"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -24,7 +24,7 @@ changes.
 				AnchorPoint = Vector2.new(.5, .5),
 				Size = UDim2.fromOffset(200, 50),
 
-				Text = "Click me!"
+				Text = "¡Cliqueame!"
 			},
 
 			New "TextBox" {
@@ -42,13 +42,14 @@ changes.
 
 -----
 
-## Connecting to Events
+## Conectando a Eventos
 
-Inside the code from above, you'll notice a TextButton. Let's try to connect to
-it's `Activated` event to detect mouse clicks.
+Dentro del código anterior, notarás un TextButton. Intentemos conectarle el 
+evento `Activated` para detectar clics del mouse.
 
-To help with this, `New` allows us to add event handlers on our instance directly.
-In order to use this feature, we need to import `OnEvent` from Fusion:
+Para ayudar con esto, `New` nos permite agregar controladores de eventos a nuestra 
+instancia directamente. Para poder usar esta característica, necesitamos importar 
+`OnEvent` desde Fusion:
 
 ```Lua linenums="1" hl_lines="7"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -60,11 +61,11 @@ local Children = Fusion.Children
 local OnEvent = Fusion.OnEvent
 ```
 
-Now you can pass in event handling functions by using `#!Lua [OnEvent "EventName"]`
-as the key.
+Ahora puedes pasar funciones de control de eventos usando `#!Lua [OnEvent "EventName"]` 
+como la key.
 
-As an example, here we're connecting a function to our TextButton's `Activated`
-event:
+Como un ejemplo, aquí estamos conectando una función a nuestros TextButtons con 
+el evento `Activated`:
 
 ```Lua linenums="14" hl_lines="11-13"
 	ZIndexBehavior = "Sibling",
@@ -75,10 +76,10 @@ event:
 			AnchorPoint = Vector2.new(.5, .5),
 			Size = UDim2.fromOffset(200, 50),
 
-			Text = "Fusion is fun :)",
+			Text = "Fusion es divertido :)",
 
 			[OnEvent "Activated"] = function(...)
-				print("Clicked!", ...)
+				print("¡Cliqueado!", ...)
 			end
 		},
 
@@ -86,25 +87,25 @@ event:
             Position = UDim2.new(0.5, 0, 0.5, 100),
 ```
 
-This works just like a regular `:Connect()` - you'll recieve all the arguments
-from the event. Here, we're just printing them out for demonstration purposes.
+Esto funciona como un regular `:Connect()` - recibirás todos los argumentos de este 
+evento. Aquí, solo estamos les estamos haciendo print por propósitos de demostración.
 
-If you press 'Play' and click the button a few times, you should see something
-like this in the output:
+Si presionas 'Play' y cliqueas el botón unas cuantas veces, deberías ver algo así 
+en el output:
 
-![Event handler output](Clicked-Output.png)
+![Output del event handler](Clicked-Output.png)
 
-That's all there is to event handling! Fusion will manage the event connections
-for you automatically.
+¡Eso es todo lo que hay para el control de eventos! Fusion maneja las conexiones 
+del evento por ti automáticamente.
 
 -----
 
-## Responding to Change
+## Respondiendo al Cambio
 
-In addition to regular events, you can listen to property change events (the
-events returned by `GetPropertyChangedSignal`).
+Además de eventos regulares, puedes escuchar eventos de cambio de propiedad (los 
+eventos regresados por `GetPropertyChangedSignal`).
 
-In order to use property change events, you'll need to import `OnChange`:
+Para usar eventos de cambio de propiedad, necesitarás importar `OnChange`:
 
 ```Lua linenums="1" hl_lines="8"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -117,16 +118,16 @@ local OnEvent = Fusion.OnEvent
 local OnChange = Fusion.OnChange
 ```
 
-Now you can pass in functions using `#!Lua [OnChange "PropertyName"]` as the key.
-When the property is changed, your function will be called with the new value as
-the only argument.
+Ahora puedes pasar funciones usando `#!Lua [OnChange "PropertyName"]` como la key. 
+Cuando la propiedad es cambiada, tu función será llamada con el nuevo valor como su 
+único argumento.
 
-To demonstrate this, here we're printing the text in our TextBox whenever it
-changes:
+Para demostrar esto, aquí estamos haciendo print del texto en nuestro TextBox cuando 
+sea que cambie:
 
 ```Lua linenums="25" hl_lines="14-16"
 			[OnEvent "Activated"] = function(...)
-				print("Clicked!", ...)
+				print("!Cliqueado!", ...)
 			end
 		},
 
@@ -146,18 +147,18 @@ changes:
 }
 ```
 
-Now, if you press 'Play' and start typing into the TextBox, you should see the
-TextBox's contents being printed to the output for each character you type:
+Ahora, si presionas 'Play' y empiezas a escribir dentro del TextBox, deberías 
+ver el contenido del TextBox reflejado en el output por cada carácter que escribes:
 
-![Property change handler output](Typing-Output.png)
+![Output del controlador de cambio](Typing-Output.png)
 
 -----
 
-With that, you've covered everything there is to know about event and property
-change handlers! In later tutorials, this will be useful for responding to user
-input.
+Con esto, has cubierto todo lo que hay para saber de controladores de evento y 
+cambio de propiedad. En tutoriales posteriores, esto será útil para responder 
+al input del usuario.
 
-??? abstract "Finished code"
+??? abstract "Código finalizado"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -182,10 +183,10 @@ input.
 				AnchorPoint = Vector2.new(.5, .5),
 				Size = UDim2.fromOffset(200, 50),
 
-				Text = "Click me!",
+				Text = "¡Cliqueame!",
 
 				[OnEvent "Activated"] = function(...)
-					print("Clicked!", ...)
+					print("¡Cliqueado!", ...)
 				end
 			},
 
@@ -205,3 +206,5 @@ input.
 	}
 
 	```
+
+!!! quote "Última Actualización de la Localización 27/09/2021"

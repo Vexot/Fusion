@@ -1,7 +1,7 @@
-Usually, we don't use state as-is in our UI; we normally process it first. Let's
-learn how to perform computations on our state.
+Usualmente, no usamos state tal cual en nuestra UI; normalmente primero la procesamos. 
+Aprendamos cómo realizar cómputos en nuestro state. 
 
-??? abstract "Required code"
+??? abstract "Código necesario"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -14,29 +14,31 @@ learn how to perform computations on our state.
 
 -----
 
-## The Computation Problem
+## El Problema de Cómputo
 
-In UI development, lots of values are computed based on other values. For
-example, you might compute a message based on the number of players online:
+En desarrollo de UI, muchos valores son computados basados en otros valores. 
+Por ejemplo, puedes computar un mensaje basado en el número de jugadores en línea:
 
 ```Lua
 local numPlayers = 5
-local message = "There are " .. numPlayers .. " players online."
+local message = "Hay " .. numPlayers .. " jugadores en línea."
 ```
 
-However, there's a problem - when `numPlayers` changes, we have to manually
-re-calculate the `message` value ourselves. If you don't, then the message will
-show the wrong amount of players - an issue known as 'data desynchronisation'.
+Sin embargo, hay un problema - cuando `numPlayers` cambia, tenemos que manualmente 
+recalcular el valor `message` por nosotros mismos. Si no lo haces, entonces el 
+mensaje mostrará el valor incorrecto de jugadores - un problema conocido como 
+'data desynchronisation'.
 
 -----
 
-## Computed Objects
+## Objetos Computados
 
-To solve this problem, Fusion introduces a second kind of object - *'computed
-objects'*. Instead of storing a fixed value, they run a computation. Think of it
-like a spreadsheet, where you can type in an equation that uses other values.
+Para resolver este problema, Fusion introduce un segundo tipo de objeto - 
+*'computed objects'*. En vez de guardar un valor arreglado, ejecutan un cálculo. 
+Piénsalo como una hoja de cálculo, en la cual puedes escribir una ecuación que 
+usa otros valores.
 
-To use computed objects, we first need to import the `Computed` constructor:
+Para usar computed objects, primero necesitamos importar el constructor `Computed`:
 
 ```Lua linenums="1" hl_lines="5"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -46,40 +48,40 @@ local State = Fusion.State
 local Computed = Fusion.Computed
 ```
 
-Now, we can create a computed object by calling the constructor. We pass in our
-computation as a function:
+Ahora, podemos crear un computed object llamando al constructor. Pasamos nuestro 
+cómputo como una función:
 
 ```Lua linenums="7" hl_lines="2-4"
 local numPlayers = State(5)
 local message = Computed(function()
-	return "There are " .. numPlayers:get() .. " players online."
+	return "Hay " .. numPlayers:get() .. " jugadores en línea."
 end)
 ```
 
-At any time, you can get the computed value with the `:get()` method:
+En cualquier momento, puedes conseguir el computed value con el método `:get()`:
 
 === "Lua"
 	```Lua linenums="7" hl_lines="6"
 	local numPlayers = State(5)
 	local message = Computed(function()
-		return "There are " .. numPlayers:get() .. " players online."
+		return "Hay " .. numPlayers:get() .. " jugadores en línea."
 	end)
 
 	print(message:get())
 	```
-=== "Expected output"
+=== "Output esperado"
 	``` hl_lines="1"
-	There are 5 players online.
+	Hay 5 jugadores en línea.
 	```
 
-Now for the magic - whenever you use a state object as part of your computation,
-the computed object will update when the state object changes:
+Ahora para la magia - cuando sea que uses un state object como parte de tu cómputo, 
+el computed object se actualizará cuando el state object cambie:
 
 === "Lua"
 	```Lua linenums="7" hl_lines="8-9"
 	local numPlayers = State(5)
 	local message = Computed(function()
-		return "There are " .. numPlayers:get() .. " players online."
+		return "Hay " .. numPlayers:get() .. " jugadores en línea."
 	end)
 
 	print(message:get())
@@ -87,97 +89,98 @@ the computed object will update when the state object changes:
 	numPlayers:set(12)
 	print(message:get())
 	```
-=== "Expected output"
+=== "Output esperado"
 	``` hl_lines="2"
-	There are 5 players online.
-	There are 12 players online.
+	Hay 5 jugadores en línea.
+	Hay 12 jugadores en línea.
 	```
 
-This solves our previous 'data desynchronisation' issue - we don't have to
-manually recalculate the message. Instead, Fusion handles it for us, because
-we're storing our state in Fusion's objects.
+Esto resuelve nuestro problema anterior 'data desynchronisation' - no tenemos 
+que recalcular manualmente el mensaje. En cambio, Fusion lo controla por nosotros, 
+porque estamos guardando nuestro state en los objetos de Fusion.
 
-That's the basic idea of computed objects; they let you naturally define values
-in terms of other values.
+Esta es la idea básica de computed objects; te permiten naturalmente definir valores 
+en términos de otros valores.
 
-!!! danger "Danger - Yielding"
-	Code inside of a computed callback should never yield. While Fusion does not
-	currently throw an error for this, there are plans to change this.
+!!! danger "Peligro - Yielding"
+	El código que esté dentro de un computed callback nunca se debería yieldiar. 
+	Mientras actualmente Fusion no muestra un error por esto, hay planes para cambiarlo.
 
-	Yielding in a callback may break a lot of Fusion code which depends on
-	updates to your variables being instant, for example dependency management.
-	It can also lead to internally inconsistent code.
+	Yielding en un callback puede romper mucho código de Fusion, lo cual depende de las 
+	actualizaciones a tus variables en ser instantáneas, por ejemplo manejo de dependencias. 
+	También puede dirigirse a código inconsistente internamente.
 
-	If you need to perform a web call when some state changes, consider using
-	`Compat(state):onChange()` to bind a change listener, which *is* allowed to
-	yield, and store the result of the web call in a state object for use
-	elsewhere:
+	Si necesitas realizar un llamado web cuando algún state cambia, considera usar 
+	`Compat(state):onChange()` para vincular un listener, el cual *es* permitido de 
+	yildearse, y guardar el resultado del llamado web en un state object para usarlo en cualquier lugar:
 
 	```Lua
 	local playerID = State(1670764)
 
-	-- bad - this will break!
+	-- mal - ¡esto se romperá!
 	local playerData = Computed(function()
 		return ReplicatedStorage.GetPlayerData:InvokeServer(playerID:get())
 	end)
 
-	-- better - this moves the yielding safely outside of any state objects
-	-- make sure to load the data for the first time if that's important
+	-- mejor - esto mueve el yielding fuera de cualquier state object de manera segura
+	-- asegurate de cargar los datos por primera vez si es importante
 	local playerData = State(nil)
 	Compat(playerData):onChange(function()
 		playerData:set(ReplicatedStorage.GetPlayerData:InvokeServer(playerID:get()))
 	end)
 	```
 
-	In the future, there are plans to make yielding code easier to work with.
-	[See this issue for more details.](https://github.com/Elttob/Fusion/issues/4)
+	En el futuro, hay planes de hacer el yielding del código más fácil de trabajar. 
+	[Mira este issue por más detalles.](https://github.com/Elttob/Fusion/issues/4)
 
-!!! danger "Danger - Using non-state objects"
-	Stick to using state objects and computed objects inside your computations.
-	Fusion can detect when you use these objects and listen for changes.
+!!! danger "Peligro - Usar non-state objects"
+	Aférrate a usar state objects y computed objects dentro de tus cómputos. Fusion puede 
+	detectar cuando usas estos objetos y escuchar cambios.
 
-	Fusion *can't* automatically detect changes when you use 'normal' variables:
+	Fusion *no puede* automáticamente detectar cambios cuando usas variables 'normales':
 
 	```Lua
-	local theVariable = "Hello"
+	local theVariable = "Hola"
 	local badValue = Computed(function()
-		-- don't do this! use state objects or computed objects in here
-		return "Say " .. theVariable
+		-- ¡no hagas esto! usa state o computed objects aqui
+		return "Di " .. theVariable
 	end)
 
-	print(badValue:get()) -- prints 'Say Hello'
+	print(badValue:get()) -- printea 'Di Hola'
 
-	theVariable = "World"
-	print(badValue:get()) -- still prints 'Say Hello' - that's a problem!
+	theVariable = "Mundo"
+	print(badValue:get()) -- aún printea 'Di Hola' - ¡eso es un problema!
 	```
 
-	By using a state object here, Fusion can correctly update the computed
-	object, because it knows we used the state object:
+	Usando un state object aqui, Fusion puede actualizar el computed object 
+	correctamente, porque sabe que usamos el state object:
 
 	```Lua
-	local theVariable = State("Hello")
+	local theVariable = State("Hola")
 	local goodValue = Computed(function()
-		-- this is much better - Fusion can detect we used this state object!
-		return "Say " .. theVariable:get()
+		-- esto es mucho mejor - ¡Fusion puede detectar que usamos el state object!
+		return "Di " .. theVariable:get()
 	end)
 
-	print(goodValue:get()) -- prints 'Say Hello'
+	print(goodValue:get()) -- printea 'Di Hola'
 
-	theVariable:set("World")
-	print(goodValue:get()) -- prints 'Say World'
+	theVariable:set("Mundo")
+	print(goodValue:get()) -- printea 'Di Mundo'
 	```
 
-	This also applies to any functions that change on their own, like
-	`os.clock()`. If you need to use them, store values from the function in a
-	state object, and update the value of that object as often as required.
+	Esto también aplica a cualquier función que pueden cambiarse por sí mismas, 
+	como `os.clock()`. Si necesitas usarlas, guarda valores de la función en un 
+	state object, y actualiza el valor de ese objeto tantas veces como 
+	sea necesario.
 
 -----
 
-Now, we've covered everything we need to know about Fusion's basic state tools.
-Using computed objects and state objects together, you can easily store and
-compute values while avoiding data desynchronisation bugs.
+Ahora, hemos cubierto todo lo que necesitamos saber acerca de las herramientas 
+básicas de state en Fusion. Usando computed objects y state objects juntos, puedes 
+guardar y calcular valores fácilmente mientras evitas bugs de desincronización 
+de datos.
 
-??? summary "Finished code"
+??? summary "Código finalizado"
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local Fusion = require(ReplicatedStorage.Fusion)
@@ -187,7 +190,7 @@ compute values while avoiding data desynchronisation bugs.
 
 	local numPlayers = State(5)
 	local message = Computed(function()
-		return "There are " .. numPlayers:get() .. " players online."
+		return "Hay " .. numPlayers:get() .. " jugadores en línea."
 	end)
 
 	print(message:get())
@@ -195,3 +198,5 @@ compute values while avoiding data desynchronisation bugs.
 	numPlayers:set(12)
 	print(message:get())
 	```
+
+!!! quote "Última Actualización de la Localización 30/09/2021"

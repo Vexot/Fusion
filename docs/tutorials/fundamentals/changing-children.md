@@ -1,28 +1,28 @@
-!!! warning "Under construction"
-	This page is under construction - information may be incomplete or missing.
+!!! warning "En construcción"
+	Esta página está en construcción - la información puede faltar o estar incompleta.
 
 
 -----
 
-## Passing State To Children
+## Pasando State a Children
 
-!!! note "Stub"
-	This section is a stub - it may require more detail added to it in future.
+!!! note "Incompleto"
+	Esta sección está incompleta - puede que se necesite agregar más detalle en el futuro.
 
-Previously, we found that we could pass state objects as properties to bind them:
+Anteriormente, encontramos que podíamos pasar state como propiedades para vincularlas:
 
 ```Lua
-local message = State("Hello")
+local message = State("Hola")
 
 local gui = New "TextLabel" {
 	Text = message
 }
 
-message:set("World") -- sets Text to World
+message:set("Mundo") -- establece Text como Mundo
 ```
 
-The same principle works for `[Children]` - you can pass in a state object
-containing any children you'd like to add, and they'll be bound similarly:
+El mismo principio funciona con `[Children]` - puedes pasarlo en un state object que 
+contenga cualquier children que desees agregar, y se vincularan de manera similar:
 
 ```Lua
 local child = State(New "Folder" {})
@@ -31,7 +31,7 @@ local gui = New "TextLabel" {
 	[Children] = child
 }
 
-child:set(New "ScreenGui") -- changes the child from the folder to the screen gui
+child:set(New "ScreenGui") -- cambia el child de la carpeta al screen gui
 
 ```
 
@@ -46,20 +46,22 @@ local gui = New "TextLabel" {
 	[Children] = child
 }
 
-children:set({child2, child3}) -- unparents child1, parents child2
+children:set({child2, child3}) -- remueve el parent del child1, y le asigna el parent al child2
 
 ```
 
-Note that when a child is removed like this, it is only unparented, not destroyed.
-Make sure to destroy any instances you remove if you're not using a helper like
-ComputedPairs.
+Date cuenta de que cuando un child se remueve de esta manera, solo pierde el parent, no se 
+destruye. Asegúrate de destruir cualquier instancia que elimines si no estás utilizando un 
+ayudante como ComputedPairs.
 
 -----
 
-## Deferred Updates
+## Actualizaciones Pospuestas
 
-!!! note "Stub"
-	This section is a stub - it may require more detail added to it in future.
+!!! note "Incompleto"
+	Esta sección está incompleta - puede que se necesite agregar más detalle en el futuro.
 
-Changes to bound children are deferred until the next render step, just like
-changes to bound properties.
+Los cambios para vincular children están pospuestos hasta el siguiente render step, 
+al igual que cambios para vincular propiedades.
+
+!!! quote "Última Actualización de la Localización 26/09/2021"

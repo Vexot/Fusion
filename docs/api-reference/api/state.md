@@ -2,52 +2,54 @@
 function State(initialValue: any?): State
 ```
 
-Constructs and returns a new state object, with an optional initial value.
+Construye y regresa un nuevo state object con un valor inicial opcional.
 
 -----
 
-## Parameters
+## Parámetros
 
-- `initialValue: any?` - the value which should initially be stored in the state
-object.
+- `initialValue: any?` - el valor que inicialmente debería ser guardado en el 
+state object.
 
 -----
 
-## Object Methods
+## Métodos del Objeto
 
 ### `get()`
 
 ```Lua
 function State:get(): any
 ```
-Returns the currently stored value of this state object.
+Regresa el valor actualmente guardado de este state object.
 
-If dependencies are currently being detected (e.g. inside a computed callback),
-then this state object will be used as a dependency.
+Si las dependencias actualmente están siendo detectadas (ej. dentro de un computed 
+callback), entonces este state object será usado como una dependencia.
 
 ### `set()`
 
 ```Lua
 function State:set(newValue: any, force: boolean?)
 ```
-Sets the new value of this state object.
+Establece el nuevo valor de este state object.
 
-If the new and old values differ, this will update any other objects using this
-state object. However, if they're the same, no update will be performed.
+Si los nuevos y antiguos valores son distintos, esto actualizará otros objetos 
+que usen este state object. Sin embargo, si son los mismos, no se realizará  
+la actualización.
 
-!!! tip "Force updating"
-	If you want to override this behaviour, you can set `force` to `true`. This
-	will ensure updates are always performed, even if the new and old values
-	are the same (as measured by the == operator). This is most useful when
-	working with mutable tables.
+!!! tip "Forzar actualización"
+	Si quieres anular este comportamiento, puedes establecer `force` a `true`. 
+	Esto se asegurará que las actualizaciones siempre sean realizadas, aún 
+	si los nuevos y antiguos valores son iguales (medido por el operador ==). 
+	Esto es más útil al trabajar con tablas mutables.
 
-	However, be very careful with this, and only force updates when you need to
-	for performance reasons. Try a solution involving immutable tables first.
-	Abuse of force updating can lead to suboptimal code that updates redundantly.
+	Sin embargo, ten mucho cuidado con esto y solo fuerza actualizaciones cuando 
+	lo necesites, por razones de rendimiento. Prueba primero una solución que 
+	involucre tablas inmutables. El abuso de forzar actualizaciones puede 
+	llevar a código no óptimo que se actualiza redundantemente.
 
 -----
 
-## Example Usage
+## Ejemplo de Uso
 
 ```Lua
 local numCoins = State(50)
@@ -58,6 +60,8 @@ numCoins:set(25)
 print(numCoins:get()) --> 25
 
 numCoins.onChange:Connect(function()
-	print("Coins changed to:", numCoins:get())
+	print("Coins ha cambiado a:", numCoins:get())
 end)
 ```
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

@@ -1,7 +1,7 @@
-Now that we have Fusion up and running, let's learn how to create instances
-from a script quickly and neatly.
+Ahora que tenemos Fusion en marcha, aprendamos a crear instancias desde un 
+script de manera rápida y ordenada. 
 
-??? abstract "Required code"
+??? abstract "Código necesario"
 
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -10,17 +10,18 @@ from a script quickly and neatly.
 
 -----
 
-## Instances from Code
+## Instancias desde Código
 
-In Fusion, you create all of your UI instances from code. That might sound
-counterproductive, but it will soon allow you to easily reuse your UI components
-and leverage powerful tools for connecting your UI and game scripts together.
+En Fusion, tu creas todas las instancias de UI desde código. Eso puede sonar 
+contraproducente, pero eso próximamente te permitirá reusar fácilmente tus 
+componentes de UI y hacer uso de herramientas potentes para conectar tu UI 
+y scripts del juego juntos.
 
-To make the experience more pleasant, Fusion introduces an alternative to
-`Instance.new` which lets you construct entire instances in one go - called the
-`New` function.
+Para hacer la experiencia más agradable, Fusion introduce una alternativa a 
+`Instance.new` que te permite construir instancias completas de golpe - 
+llamada la función `New`.
 
-Here's an example code snippet using `New` - you can compare it to `Instance.new`:
+Aqui esta un fragmento de código de ejemplo usando `New` - puedes compararlo a `Instance.new`:
 
 === "New"
 
@@ -47,27 +48,26 @@ Here's an example code snippet using `New` - you can compare it to `Instance.new
 	```
 
 !!! note
-	You don't need parentheses `()` for `New` - just type the class name and
-	properties like we did above.
+	No necesitas paréntesis `()` para `New` - solo escribe el 
+	nombre de la clase y sus propiedades como lo hemos hecho anteriormente.
 
-In the above code snippet, the `New` function:
+En el fragmento de código anterior, la función `New`:
 
-- creates a new part
-- gives it a position, size and colour
-- parents it to the workspace
-- returns the part, so it can be stored in `myPart`
+- crea una nueva parte
+- le da una posición, tamaño y color
+- asigna el workspace como su parent
+- regresa la parte, para que pueda ser guardada en `myPart`
 
-The `New` function has many more features built in, which you'll use later, but
-for now we'll just use it to set properties.
+La función `New` tiene muchas características incorporadas, las cuales usarás 
+después, pero por ahora la usaremos para establecer propiedades.
 
 -----
 
-## Making A ScreenGui
+## Creando Un ScreenGui
 
-Let's use the `New` function to create a ScreenGui.
+Usemos la función `New` para crear un ScreenGui.
 
-We're going to put it in our PlayerGui, so we need to import the `Players`
-service:
+Lo pondremos en nuestro PlayerGui, así que necesitamos importar el servicio `Players`.
 
 ```Lua linenums="1" hl_lines="2"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -75,7 +75,7 @@ local Players = game:GetService("Players")
 local Fusion = require(ReplicatedStorage.Fusion)
 ```
 
-We'll also need to import `New` from Fusion:
+También tendremos que importar `New` desde Fusion:
 
 ```Lua linenums="1" hl_lines="5"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -85,21 +85,24 @@ local Fusion = require(ReplicatedStorage.Fusion)
 local New = Fusion.New
 ```
 
-Now, we can use the `New` function like we did in the snippet above. We want to
-create a ScreenGui with these properties:
+Ahora podemos usar la función `New` como hicimos en el fragmento anterior. 
+Queremos crear un ScreenGui con estas propiedades:
 
-- a name of 'MyFirstGui'
-- `ResetOnSpawn` disabled
-- the `ZIndexBehavior` set to 'Sibling'
-- parented to our PlayerGui
+- un nombre de 'MyFirstGui'
+- `ResetOnSpawn` deshabilitado
+- el ZIndexBehavior` establecido como 'Sibling'
+- PlayerGui como su parent
 
-??? question "What do these properties do?"
-	- A name makes it easier to find our UI in the Explorer.
-	- Disabling `ResetOnSpawn` stops Roblox destroying our UI after we respawn.
-	- `ZIndexBehavior` is mostly preference, but [it changes how UI is arranged by depth](https://devforum.roblox.com/t/new-zindexbehavior-property-is-now-live/76051).
-	- Parenting it to the PlayerGui makes our UI visible on-screen.
+??? question "¿Qué hacen estas propiedades?"
+	- Un nombre hace más fácil encontrar nuestra UI en el Explorer.
+	- Deshabilitando `ResetOnSpawn` detiene que Roblox destruya nuestra UI 
+	después de que reaparezcamos.
+	- `ZIndexBehavior` es más que todo preferencia, pero [cambia como la UI 
+	es organizada por profundidad](https://devforum.roblox.com/t/new-zindexbehavior-property-is-now-live/76051).
+	- Asignando el PlayerGui como su parent hace nuestra UI visible en la pantalla.
 
-The following code snippet does all of this for us:
+
+El siguiente fragmento de código hace todo esto por nosotros:
 
 ```Lua linenums="1" hl_lines="7-13"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -117,23 +120,23 @@ local gui = New "ScreenGui" {
 }
 ```
 
-If you press 'Play', you should see that a ScreenGui has appeared in your
-PlayerGui, with all of the properties we've set:
+Si presionas 'Play', deberías ver que un ScreenGui ha aparecido en tu 
+PlayerGui, con todas las propiedades que hemos establecido:
 
-![Explorer screenshot](MyFirstGui.png)
+![Pantallazo del Explorer](MyFirstGui.png)
 
-Hopefully you're getting comfortable with this syntax - we'll expand on it in
-the next section.
+Esperamos que te estés sintiendo cómodo con esta sintaxis - nos extenderemos en 
+esto en la siguiente sección.
 
 -----
 
-## Adding a Child
+## Agregando un Child
 
-Let's now add a TextLabel with a message and parent it to our ScreenGui.
+Ahora agreguemos un TextLabel con un mensaje y asignar su parent a nuestro ScreenGui.
 
-To help with this, the `New` function lets us add children directly to our
-instance. In order to use this feature, we first need to import `Children` from
-Fusion:
+Para ayudar con esto, la función `New` nos permite agregar children directamente a 
+nuestra instancia. Para usar esta característica, primero tendremos que importar 
+`Children` desde Fusion:
 
 ```Lua linenums="1" hl_lines="6"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -145,10 +148,10 @@ local Children = Fusion.Children
 
 ```
 
-Now, we can make any instance a child of our ScreenGui - just pass it in using
-`#!Lua [Children]` as the key.
+Ahora podemos crear cualquier instancia como child de nuestro ScreenGui - solo 
+pasalo usando `#!Lua [Children]` como la key.
 
-For example, here we're creating our TextLabel, and adding it as a child:
+Por ejemplo, aquí estamos creando nuestro TextLabel, y agregandolo como un child:
 
 ```Lua linenums="8" hl_lines="8-14"
 local gui = New "ScreenGui" {
@@ -163,22 +166,22 @@ local gui = New "ScreenGui" {
 		AnchorPoint = Vector2.new(.5, .5),
 		Size = UDim2.fromOffset(200, 50),
 
-		Text = "Fusion is fun :)"
+		Text = "Fusion es divertido :)"
 	}
 }
 ```
 
-If you press 'Play' now, you should see a TextLabel in the centre of your screen:
+Si ahora presionas 'Play', deberías ver un TextLabel en el centro de tu pantalla:
 
-![Final result](FinalResult.png)
+![Resultado final](FinalResult.png)
 
 -----
 
-## Multiple Children
+## Múltiples Children
 
-You can add more than one instance - `Children` supports arrays of instances.
+Puedes agregar más de una instancia - `Children` permite usar arrays de instancias.
 
-If we wanted multiple TextLabels, we can create an array to hold our children:
+Si deseamos múltiples TextLabels, podemos crear un array para mantener nuestros children:
 
 ```Lua linenums="8" hl_lines="8 16"
 local gui = New "ScreenGui" {
@@ -194,13 +197,13 @@ local gui = New "ScreenGui" {
 			AnchorPoint = Vector2.new(.5, .5),
 			Size = UDim2.fromOffset(200, 50),
 
-			Text = "Fusion is fun :)"
+			Text = "Fusion es divertido :)"
 		}
 	}
 }
 ```
 
-Now, we can add another TextLabel to the array, and it will also be parented:
+Ahora, podemos agregar otro TextLabel al array, y este también tendrá un parent:
 
 ```Lua linenums="8" hl_lines="17-23"
 local gui = New "ScreenGui" {
@@ -216,7 +219,7 @@ local gui = New "ScreenGui" {
 			AnchorPoint = Vector2.new(.5, .5),
 			Size = UDim2.fromOffset(200, 50),
 
-			Text = "Fusion is fun :)"
+			Text = "Fusion es divertido :)"
 		},
 
 		New "TextLabel" {
@@ -224,26 +227,25 @@ local gui = New "ScreenGui" {
 			AnchorPoint = Vector2.new(.5, .5),
 			Size = UDim2.fromOffset(200, 50),
 
-			Text = "Two is better than one!"
+			Text = "¡Dos es mejor que uno!"
 		}
 	}
 }
 ```
 
-If you press 'Play', you should see both TextLabels appear:
+Si presionas 'Play', deberías ver ambos TextLabels aparecer:
 
-![Final result with many messages](FinalResult-Many.png)
+![Resultado final con muchos mensajes](FinalResult-Many.png)
 
 -----
 
-Congratulations - you've now learned how to create simple instances with Fusion!
-Over the course of the next few tutorials, you'll see this syntax being used a
-lot, so you'll have some time to get used to it.
+Felicidades - ¡has aprendido a crear instancias simples con Fusion! Durante 
+el curso de los siguientes tutoriales, verás usada esta sintaxis mucho, 
+así que tendrás un poco de tiempo para acostumbrarte a esta.
 
-It's important to understand the basics of the `New` function, as it's used
-throughout almost all Fusion code.
+Es importante entender lo básico de la función `New`, debido a que es usada a lo largo de casi todo el código de Fusion.
 
-??? abstract "Finished code"
+??? abstract "Código finalizado"
 	```Lua linenums="1"
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local Players = game:GetService("Players")
@@ -265,7 +267,7 @@ throughout almost all Fusion code.
 				AnchorPoint = Vector2.new(.5, .5),
 				Size = UDim2.fromOffset(200, 50),
 
-				Text = "Fusion is fun :)"
+				Text = "Fusion es divertido :)"
 			},
 
 			New "TextLabel" {
@@ -273,9 +275,11 @@ throughout almost all Fusion code.
 				AnchorPoint = Vector2.new(.5, .5),
 				Size = UDim2.fromOffset(200, 50),
 
-				Text = "Two is better than one!"
+				Text = "¡Dos es mejor que uno!"
 			}
 		}
 	}
 
 	```
+
+!!! quote "Última Actualización de la Localización 27/09/2021"

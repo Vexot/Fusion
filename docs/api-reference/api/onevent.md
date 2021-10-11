@@ -2,31 +2,32 @@
 function OnEvent(eventName: string): Symbol
 ```
 
-Generates symbols used to denote event handlers when working with the [New](../new)
-function.
+Genera símbolos usados para denotar controladores de eventos al trabajar con la 
+función [New](../new).
 
-When using this symbol as a key in `New`'s property table, the value is expected
-to be a callback function, which will be connected to the given event on the
-instance.
+Al usar este símbolo como una key en la tabla de propiedades de `New`, se espera 
+que el valor sea una función callback, la cual será conectada al evento dado en 
+la instancia.
 
-The function acts as a normal event handler does; it receives all arguments from
-the event. The connection is automatically cleaned up when the instance is
-destroyed.
-
------
-
-## Parameters
-
-- `eventName: string` - the name of the event on the instance
+La función se comporta al igual que un controlador de eventos; recibe todo los argumentos 
+del evento. La conexión se limpia automáticamente cuando la instancia se destruye.
 
 -----
 
-## Example Usage
+## Parámetros
+
+- `eventName: string` - el nombre del evento en la instancia
+
+-----
+
+## Ejemplo de Uso
 
 ```Lua
 local example = New "TextButton" {
 	[OnEvent "Activated"] = function(...)
-		print("Activated event fired with args:", ...)
+		print("El evento Activated se ejecuta con args:", ...)
 	end
 }
 ```
+
+!!! quote "Última Actualización de la Localización 10/10/2021"

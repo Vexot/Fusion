@@ -1,2 +1,4 @@
-!!! warning "Under construction"
-	This page is under construction - information may be incomplete or missing.
+!!! warning "En construcción"
+	Esta página está en construcción - la información puede faltar o estar incompleta.
+
+!!! quote "Última Actualización de la Localización 25/09/2021"

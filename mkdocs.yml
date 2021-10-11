@@ -1,12 +1,12 @@
-site_name: Fusion
-site_description: A modern reactive UI library, built specifically for Roblox and Luau.
-site_url: https://elttob.github.io/Fusion/
+site_name: Fusion en Español
+site_description: Una biblioteca reactiva moderna, construida específicamente para Roblox y Luau.
+site_url: https://vexot.github.io/Fusion/es/
 repo_name: Elttob/Fusion
 repo_url: https://github.com/Elttob/Fusion
 
 theme:
   name: material
-  language: en
+  language: es
   custom_dir: docs/assets/overrides
   logo: assets/logo-dark.svg
   favicon: assets/logo-dark.svg
@@ -24,57 +24,54 @@ theme:
 extra_css:
   - assets/fusion.css
 
-extra:
-  alternate:
-    - name: English
-      link: ./
-      lang: en
-    - name: Español
-      link: ./es/
-      lang: es
-
 nav:
-  - Home: index.md
-  - Tutorials:
-    - Get Started: tutorials/index.md
-    - Fundamentals:
-      - Creating UI: tutorials/fundamentals/creating-ui.md
-      - Handling Events: tutorials/fundamentals/handling-events.md
-      - Storing State: tutorials/fundamentals/storing-state.md
-      - Computations: tutorials/fundamentals/computations.md
-      - Changing Properties: tutorials/fundamentals/changing-properties.md
-      - Changing Children: tutorials/fundamentals/changing-children.md
-      - "Project 1: Counting Clicks": tutorials/fundamentals/project-1.md
-    - Further Basics:
-      - Components: tutorials/further-basics/components.md
-      - Arrays and Lists: tutorials/further-basics/arrays-and-lists.md
-      - Compatibility: tutorials/further-basics/compatibility.md
-      - "Project 2: To-Do List": tutorials/further-basics/project-2.md
-    - Animation:
+  - Inicio: index.md
+  - Tutoriales:
+    - Empezar: tutorials/index.md
+    - Fundamentos:
+      - Creando UI: tutorials/fundamentals/creating-ui.md
+      - Manejando Eventos: tutorials/fundamentals/handling-events.md
+      - Guardando States: tutorials/fundamentals/storing-state.md
+      - Cómputos: tutorials/fundamentals/computations.md
+      - Cambiando Propiedades: tutorials/fundamentals/changing-properties.md
+      - Cambiando Children: tutorials/fundamentals/changing-children.md
+      - "Proyecto 1: Contando Clics": tutorials/fundamentals/project-1.md
+    - Otros Fundamentos:
+      - Componentes: tutorials/further-basics/components.md
+      - Arrays y Listas: tutorials/further-basics/arrays-and-lists.md
+      - Compatibilidad: tutorials/further-basics/compatibility.md
+      - "Proyecto 2: Lista To-Do": tutorials/further-basics/project-2.md
+    - Animación:
       - Tweens: tutorials/animation/tweens.md
       - Springs: tutorials/animation/springs.md
-      - "Project 3: Switches": tutorials/animation/project-3.md
-  - Examples:
-    - Home: examples/index.md
-  - API Reference:
-    - Home: api-reference/index.md
-    - Errors & Messages: api-reference/errors-and-messages.md
-    - Instances:
+      - "Proyecto 3: Switches": tutorials/animation/project-3.md
+  - Ejemplos:
+    - Inicio: examples/index.md
+  - Referencia del API:
+    - Inicio: api-reference/index.md
+    - Errores y Mensajes: api-reference/errors-and-messages.md
+    - Instancias:
       - New: api-reference/api/new.md
       - Children: api-reference/api/children.md
       - OnEvent: api-reference/api/onevent.md
       - OnChange: api-reference/api/onchange.md
-    - State Management:
+    - Gestión de Estados:
       - State: api-reference/api/state.md
       - Computed: api-reference/api/computed.md
       - ComputedPairs: api-reference/api/computedpairs.md
       - Compat: api-reference/api/compat.md
-    - Animation:
+    - Animación:
       - Tween: api-reference/api/tween.md
       - Spring: api-reference/api/spring.md
   - Extras:
-    - Home: extras/index.md
-    - Backgrounds: extras/backgrounds.md
+    - Inicio: extras/index.md
+    - Fondos: extras/backgrounds.md
+
+extra:
+  social:
+    - icon: fontawesome/regular/copyright
+      link: https://github.com/Elttob/Fusion
+      name: Original Repo
 
 markdown_extensions:
   - admonition
@@ -95,35 +92,3 @@ markdown_extensions:
 
 plugins:
   - search
-  - i18n:
-      default_language: en
-      languages:
-        en: English
-        es: Español
-      material_alternate: false
-      nav_translations:
-         es:
-            Home: Inicio
-            Tutorials: Tutoriales
-            Get Started: Empezar
-            Fundamentals: Fundamentos
-            Creating UI: Creando UI
-            Handling Events: Manejando Eventos
-            Storing State: Guardando States
-            Computations: Cómputos
-            Changing Properties: Cambiando Propiedades
-            Changing Children: Cambiando Children
-            "Project 1: Counting Clicks": "Proyecto 1: Contando Clics"
-            Further Basics: Otros Fundamentos
-            Components: Componentes
-            Arrays and Lists: Arrays y Listas
-            Compatibility: Compatibilidad
-            "Project 2: To-Do List": "Proyecto 2: Lista To-Do"
-            Animation: Animación
-            "Project 3: Switches": "Proyecto 3: Switches"
-            Examples: Ejemplos
-            API Reference: Referencia del API
-            Errors & Messages: Errores y Mensajes
-            Instances: Instancias
-            State Management: Gestión de Estados
-            Backgrounds: Fondos
